@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Prevent fixed header from covering anchored sections */
+html {
+  scroll-padding-top: 80px;
+}
+
+body {
+  min-width: 320px;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
