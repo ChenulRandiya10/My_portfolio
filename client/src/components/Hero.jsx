@@ -4,7 +4,7 @@ export default function Hero() {
     <section id="home" style={{ textAlign: 'left', padding: '5rem 2rem', background: '#0f172a', color: '#e5e7eb', display: 'grid', gridTemplateColumns: '1fr 360px', alignItems: 'center', gap: '2rem' }}>
       <div>
         <p style={{ margin: 0, color: '#4f86ff', fontWeight: 700, letterSpacing: '0.08em' }}>Hello, I'm</p>
-        <h1 style={{ margin: '0.4rem 0 0', fontSize: '3rem', lineHeight: 1 }}>{'Shalitha'} <br />{'Lakshan'}</h1>
+        <h1 style={{ margin: '0.4rem 0 0', fontSize: '3rem', lineHeight: 1 }}>{'Chenul'} <br />{'Randiya'}</h1>
         <h3 style={{ marginTop: '0.6rem', color: '#cbd5e1', fontWeight: 600 }}>Software Engineering<br />Student @ SLIIT</h3>
         <p style={{ maxWidth: '560px', color: '#cbd5e1', marginTop: '1rem', lineHeight: 1.7 }}>
           I'm a full-stack developer with strong interest in backend development and system architecture. I enjoy building scalable systems, optimizing performance, and continuously improving code quality.

@@ -4,16 +4,16 @@ import axios from 'axios';
 const accentColor = '#7c8cff';
 
 const contactItems = [
-  { label: 'Phone', value: '+94 77 279 549', href: 'tel:+9477279549', icon: PhoneIcon },
-  { label: 'Location', value: 'Anuradhapura, Sri Lanka', href: 'https://maps.google.com/', icon: LocationIcon },
-  { label: 'GitHub', value: 'Shalitha-Lakshan', href: 'https://github.com/', icon: GitHubIcon },
-  { label: 'LinkedIn', value: 'shalitha-lakshan', href: 'https://www.linkedin.com/', icon: LinkedInIcon },
-  { label: 'Email', value: 'shalithalakshan594@gmail.com', href: 'mailto:shalithalakshan594@gmail.com', icon: MailIcon },
+  { label: 'Phone', value: '0753334782 / 0777456146', href: 'tel:0753334782', icon: PhoneIcon },
+  { label: 'Location', value: 'No.223/1\'s/Suprime Terrace, Kurukulawa, Ragama, 11010 Ragama', href: 'https://maps.google.com/', icon: LocationIcon },
+  { label: 'GitHub', value: 'ChenulRandiya10', href: 'https://github.com/ChenulRandiya10', icon: GitHubIcon },
+  { label: 'LinkedIn', value: 'chenul-randiya-382aa8293', href: 'https://linkedin.com/in/chenul-randiya-382aa8293', icon: LinkedInIcon },
+  { label: 'Email', value: 'chenulrandiya10@gmail.com', href: 'mailto:chenulrandiya10@gmail.com', icon: MailIcon },
 ];
 
 const socialLinks = [
-  { label: 'GitHub', href: 'https://github.com/', icon: GitHubIcon },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/', icon: LinkedInIcon },
+  { label: 'GitHub', href: 'https://github.com/ChenulRandiya10', icon: GitHubIcon },
+  { label: 'LinkedIn', href: 'https://linkedin.com/in/chenul-randiya-382aa8293', icon: LinkedInIcon },
 ];
 
 function IconShell({ children }) {

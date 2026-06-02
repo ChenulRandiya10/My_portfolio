@@ -13,8 +13,8 @@ const navItems = [
 ];
 
 const socialItems = [
-  { href: 'https://github.com/', label: 'GitHub', icon: GitHubIcon },
-  { href: 'https://www.linkedin.com/', label: 'LinkedIn', icon: LinkedInIcon },
+  { href: 'https://github.com/ChenulRandiya10', label: 'GitHub', icon: GitHubIcon },
+  { href: 'https://linkedin.com/in/chenul-randiya-382aa8293', label: 'LinkedIn', icon: LinkedInIcon },
 ];
 
 function IconShell({ children }) {

@@ -1,5 +1,20 @@
 import React from 'react'
 
+const leadershipActivities = [
+  { role: 'Volunteer Member', period: '2023 - Present', organization: 'SLIIT Faculty of Computing Students Community, Malabe' },
+  { role: 'Deputy Head Prefect', period: '2022', organization: 'Karunarathna Buddhist National College' },
+  { role: 'Class Prefect', period: '2018 - 2019', organization: 'Carey College' },
+  { role: 'Member', period: '2017 - 2018', organization: 'Library Society, Carey College' },
+  { role: 'Member', period: '2014 - 2017', organization: 'Buddhist Society, Carey College' },
+];
+
+const sportsActivities = [
+  { role: 'Rugby Player & Manager', period: '2023 - Present', organization: 'SLIIT Rugby Team, Malabe' },
+  { role: 'Member (Under 19)', period: '2018 - 2020', organization: 'Carey College Rugby Team' },
+  { role: 'Member (Under 13 - 19)', period: '2014 - 2019', organization: 'Carey College Badminton Team' },
+  { role: 'Member (Under 15)', period: '2017', organization: 'Carey College Athletics Team' },
+];
+
 export default function About() {
   function StatIconFolder() {
     return (
@@ -68,39 +83,11 @@ export default function About() {
             <article style={{ borderRadius: '14px', padding: '1.5rem', background: 'rgba(17,24,39,0.85)', border: '1px solid rgba(255,255,255,0.04)', boxShadow: '0 12px 40px rgba(0,0,0,0.35)' }}>
               <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', margin: '0 0 0.6rem', color: '#f8fafc' }}><span style={{ color: '#4f86ff' }}>{'</>'}</span> Who Am I?</h3>
               <div style={{ color: '#cbd5e1', lineHeight: 1.8 }}>
-                <p>I&apos;m a passionate Software Engineering student at SLIIT with a strong foundation in backend development and system architecture. My journey in technology is driven by a deep curiosity for solving complex problems and creating efficient, scalable solutions.</p>
+                <p>I&apos;m Chenul Randiya, a passionate Software Engineering student at SLIIT with a strong foundation in backend development and system architecture. My journey in technology is driven by a deep curiosity for solving complex problems and creating efficient, scalable solutions.</p>
                 <p>With experience in full-stack development, I specialize in building robust web applications using modern technologies. I&apos;m particularly interested in system design, database optimization, and creating seamless user experiences.</p>
                 <p>When I&apos;m not coding, you can find me exploring new technologies, contributing to open-source projects, or sharing my knowledge with the developer community.</p>
               </div>
             </article>
-
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem', marginTop: '1.25rem' }}>
-              {stats.map(s => {
-                const Icon = s.icon;
-                return (
-                  <div key={s.label} style={{ background: 'rgba(17,24,39,0.85)', borderRadius: '12px', padding: '1.25rem 1.3rem', border: '1px solid rgba(255,255,255,0.03)', minHeight: '120px', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '0.6rem' }}>
-                    <div style={{ display: 'flex', justifyContent: 'center' }}>
-                      {['Technologies', 'Projects Completed', 'Years Experience', 'Open Source'].includes(s.label) ? (
-                        (() => {
-                          const map = {
-                            'Technologies': 'Technologies.png',
-                            'Projects Completed': 'Projects Completed.png',
-                            'Years Experience': 'Years Experience.png',
-                            'Open Source': 'Open Source.png'
-                          };
-                          const src = `/src/images/${map[s.label]}`;
-                          return <img src={src} alt={s.label} style={{ width: 88, height: 88, objectFit: 'contain' }} />;
-                        })()
-                      ) : (
-                        <span style={{ width: '44px', height: '44px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(79,134,255,0.08)', borderRadius: '10px' }}><Icon /></span>
-                      )}
-                    </div>
-                    <div style={{ textAlign: 'center', color: '#9fb0ff', fontWeight: 800, fontSize: '1.6rem' }}>{s.value}</div>
-                    <div style={{ textAlign: 'center', color: '#cbd5e1', fontSize: '0.95rem' }}>{s.label}</div>
-                  </div>
-                );
-              })}
-            </div>
           </div>
 
           <div>
@@ -122,6 +109,96 @@ export default function About() {
               <div style={{ color: '#cbd5e1', marginTop: '0.5rem', fontSize: '0.95rem' }}>2023 - 2027</div>
             </div>
           </div>
+        </div>
+
+        {/* Leadership & Sports Activities */}
+        <div style={{ marginTop: '2.5rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
+          {/* Leadership & Community Card */}
+          <article
+            style={{
+              borderRadius: '14px',
+              padding: '1.5rem',
+              background: 'rgba(17,24,39,0.85)',
+              border: '1px solid rgba(255,255,255,0.04)',
+              boxShadow: '0 12px 40px rgba(0,0,0,0.35)',
+            }}
+          >
+            <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', margin: '0 0 1.25rem', color: '#f8fafc', fontSize: '1.25rem', borderBottom: '1px solid rgba(255,255,255,0.06)', paddingBottom: '0.75rem' }}>
+              <span style={{ color: '#4f86ff' }}>🛡️</span> Leadership &amp; Community
+            </h3>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
+              {leadershipActivities.map((item, idx) => (
+                <div key={idx} style={{ display: 'flex', gap: '0.8rem', alignItems: 'start' }}>
+                  <span style={{ marginTop: '0.45rem', width: '0.4rem', height: '0.4rem', borderRadius: '50%', background: '#4f86ff', flexShrink: 0 }} />
+                  <div style={{ flex: 1 }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '0.5rem' }}>
+                      <span style={{ fontSize: '0.98rem', fontWeight: 600, color: '#f8fafc' }}>{item.role}</span>
+                      <span style={{ fontSize: '0.75rem', color: '#9fb0ff', background: 'rgba(79,134,255,0.08)', padding: '0.15rem 0.5rem', borderRadius: '8px', fontWeight: 500 }}>{item.period}</span>
+                    </div>
+                    <div style={{ fontSize: '0.86rem', color: '#cbd5e1', marginTop: '0.2rem' }}>{item.organization}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </article>
+
+          {/* Sports & Athletics Card */}
+          <article
+            style={{
+              borderRadius: '14px',
+              padding: '1.5rem',
+              background: 'rgba(17,24,39,0.85)',
+              border: '1px solid rgba(255,255,255,0.04)',
+              boxShadow: '0 12px 40px rgba(0,0,0,0.35)',
+            }}
+          >
+            <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', margin: '0 0 1.25rem', color: '#f8fafc', fontSize: '1.25rem', borderBottom: '1px solid rgba(255,255,255,0.06)', paddingBottom: '0.75rem' }}>
+              <span style={{ color: '#4f86ff' }}>🏆</span> Sports &amp; Athletics
+            </h3>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
+              {sportsActivities.map((item, idx) => (
+                <div key={idx} style={{ display: 'flex', gap: '0.8rem', alignItems: 'start' }}>
+                  <span style={{ marginTop: '0.45rem', width: '0.4rem', height: '0.4rem', borderRadius: '50%', background: '#4f86ff', flexShrink: 0 }} />
+                  <div style={{ flex: 1 }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '0.5rem' }}>
+                      <span style={{ fontSize: '0.98rem', fontWeight: 600, color: '#f8fafc' }}>{item.role}</span>
+                      <span style={{ fontSize: '0.75rem', color: '#9fb0ff', background: 'rgba(79,134,255,0.08)', padding: '0.15rem 0.5rem', borderRadius: '8px', fontWeight: 500 }}>{item.period}</span>
+                    </div>
+                    <div style={{ fontSize: '0.86rem', color: '#cbd5e1', marginTop: '0.2rem' }}>{item.organization}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </article>
+        </div>
+
+        {/* Stats Grid */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem', marginTop: '2.5rem' }}>
+          {stats.map(s => {
+            const Icon = s.icon;
+            return (
+              <div key={s.label} style={{ background: 'rgba(17,24,39,0.85)', borderRadius: '12px', padding: '1.25rem 1.3rem', border: '1px solid rgba(255,255,255,0.03)', minHeight: '120px', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '0.6rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                  {['Technologies', 'Projects Completed', 'Years Experience', 'Open Source'].includes(s.label) ? (
+                    (() => {
+                      const map = {
+                        'Technologies': 'Technologies.png',
+                        'Projects Completed': 'Projects Completed.png',
+                        'Years Experience': 'Years Experience.png',
+                        'Open Source': 'Open Source.png'
+                      };
+                      const src = `/src/images/${map[s.label]}`;
+                      return <img src={src} alt={s.label} style={{ width: 88, height: 88, objectFit: 'contain' }} />;
+                    })()
+                  ) : (
+                    <span style={{ width: '44px', height: '44px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(79,134,255,0.08)', borderRadius: '10px' }}><Icon /></span>
+                  )}
+                </div>
+                <div style={{ textAlign: 'center', color: '#9fb0ff', fontWeight: 800, fontSize: '1.6rem' }}>{s.value}</div>
+                <div style={{ textAlign: 'center', color: '#cbd5e1', fontSize: '0.95rem' }}>{s.label}</div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
