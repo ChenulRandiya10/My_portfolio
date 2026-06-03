@@ -1,74 +1,23 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { ContactIcon } from './Icons';
 
 const accentColor = '#7c8cff';
 
 const contactItems = [
-  { label: 'Phone', value: '0753334782 / 0777456146', href: 'tel:0753334782', icon: PhoneIcon },
-  { label: 'Location', value: 'No.223/1\'s/Suprime Terrace, Kurukulawa, Ragama, 11010 Ragama', href: 'https://maps.google.com/', icon: LocationIcon },
-  { label: 'GitHub', value: 'ChenulRandiya10', href: 'https://github.com/ChenulRandiya10', icon: GitHubIcon },
-  { label: 'LinkedIn', value: 'chenul-randiya-382aa8293', href: 'https://linkedin.com/in/chenul-randiya-382aa8293', icon: LinkedInIcon },
-  { label: 'Email', value: 'chenulrandiya10@gmail.com', href: 'mailto:chenulrandiya10@gmail.com', icon: MailIcon },
+  { label: 'Phone', value: '0753334782 / 0777456146', href: 'tel:0753334782', type: 'phone' },
+  { label: 'Location', value: 'No.223/1\'s/Suprime Terrace, Kurukulawa, Ragama, 11010 Ragama', href: 'https://maps.google.com/', type: 'location' },
+  { label: 'GitHub', value: 'ChenulRandiya10', href: 'https://github.com/ChenulRandiya10', type: 'github' },
+  { label: 'LinkedIn', value: 'chenul-randiya-382aa8293', href: 'https://linkedin.com/in/chenul-randiya-382aa8293', type: 'linkedin' },
+  { label: 'Email', value: 'chenulrandiya10@gmail.com', href: 'mailto:chenulrandiya10@gmail.com', type: 'email' },
 ];
 
 const socialLinks = [
-  { label: 'GitHub', href: 'https://github.com/ChenulRandiya10', icon: GitHubIcon },
-  { label: 'LinkedIn', href: 'https://linkedin.com/in/chenul-randiya-382aa8293', icon: LinkedInIcon },
+  { label: 'GitHub', href: 'https://github.com/ChenulRandiya10', type: 'github' },
+  { label: 'LinkedIn', href: 'https://linkedin.com/in/chenul-randiya-382aa8293', type: 'linkedin' },
 ];
 
-function IconShell({ children }) {
-  return (
-    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      {children}
-    </svg>
-  );
-}
 
-function PhoneIcon() {
-  return (
-    <IconShell>
-      <path d="M7.5 4.5h2.2c.5 0 .9.3 1.1.8l.9 2.7c.2.5 0 1.1-.4 1.4l-1.4 1.2c1 2 2.7 3.7 4.7 4.7l1.2-1.4c.4-.4.9-.6 1.4-.4l2.7.9c.5.2.8.6.8 1.1v2.2c0 .6-.4 1.1-1 1.2-9.3 1.3-16.7-6.1-15.4-15.4.1-.6.6-1 1.2-1Z" />
-    </IconShell>
-  );
-}
-
-function LocationIcon() {
-  return (
-    <IconShell>
-      <path d="M12 20s5-4.2 5-10a5 5 0 1 0-10 0c0 5.8 5 10 5 10Z" />
-      <circle cx="12" cy="10" r="2" />
-    </IconShell>
-  );
-}
-
-function GitHubIcon() {
-  return (
-    <IconShell>
-      <path d="M9 19c-4.2 1.5-4.2-1.9-5.9-2.4" />
-      <path d="M15 22v-3.2c0-.9.3-1.6.8-2.1-2.7.3-5.5-1.2-5.5-4.3 0-1 .4-2 1.1-2.8-.1-.3-.5-1.3.1-2.6 0 0 .9-.3 2.8 1a9.4 9.4 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .6 1.3.2 2.3.1 2.6.7.8 1.1 1.8 1.1 2.8 0 3.1-2.8 4.6-5.5 4.3.5.5.8 1.3.8 2.4V22" />
-      <path d="M9 19c0 1-.6 1.8-2.1 1.8" />
-    </IconShell>
-  );
-}
-
-function LinkedInIcon() {
-  return (
-    <IconShell>
-      <rect x="4.5" y="9" width="3" height="10" rx="1" />
-      <circle cx="6" cy="6.2" r="1.4" />
-      <path d="M11 19V9h3v1.7c.6-1.1 1.7-1.9 3.3-1.9 2.5 0 4.2 1.6 4.2 5V19h-3v-4.6c0-1.8-.7-2.7-2-2.7-1.4 0-2.5 1-2.5 3V19h-3Z" />
-    </IconShell>
-  );
-}
-
-function MailIcon() {
-  return (
-    <IconShell>
-      <rect x="4.5" y="6.5" width="15" height="11" rx="2" />
-      <path d="m5.5 8.5 6.5 5 6.5-5" />
-    </IconShell>
-  );
-}
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
@@ -170,15 +119,15 @@ export default function Contact() {
       transition: 'transform 160ms ease, border-color 160ms ease, background 160ms ease',
     },
     infoIcon: {
-      width: '3rem',
-      height: '3rem',
-      borderRadius: '999px',
+      width: '3.2rem',
+      height: '3.2rem',
+      borderRadius: '50%',
       display: 'inline-flex',
       alignItems: 'center',
       justifyContent: 'center',
       flexShrink: 0,
-      color: accentColor,
-      background: 'rgba(124, 140, 255, 0.15)',
+      background: 'rgba(255, 255, 255, 0.04)',
+      border: '1px solid rgba(255, 255, 255, 0.08)',
     },
     infoLabel: {
       display: 'block',
@@ -333,7 +282,7 @@ export default function Contact() {
             </p>
 
             <div style={styles.infoGrid}>
-              {contactItems.map(({ label, value, href, icon: Icon }, index) => {
+              {contactItems.map(({ label, value, href, type }, index) => {
                 const cardStyle = index === contactItems.length - 1 ? { ...styles.infoCard, ...styles.fullInfoCard } : styles.infoCard;
 
                 return (
@@ -345,7 +294,7 @@ export default function Contact() {
                     rel={href.startsWith('http') ? 'noreferrer' : undefined}
                   >
                     <span style={styles.infoIcon}>
-                      <Icon />
+                      <ContactIcon type={type} size={28} />
                     </span>
                     <span>
                       <span style={styles.infoLabel}>{label}</span>
@@ -358,9 +307,9 @@ export default function Contact() {
 
             <h3 style={styles.followTitle}>Follow Me</h3>
             <div style={styles.followRow}>
-              {socialLinks.map(({ label, href, icon: Icon }) => (
+              {socialLinks.map(({ label, href, type }) => (
                 <a key={label} href={href} target="_blank" rel="noreferrer" aria-label={label} title={label} style={styles.socialLink}>
-                  <Icon />
+                  <ContactIcon type={type} size={24} />
                 </a>
               ))}
             </div>
@@ -421,7 +370,7 @@ export default function Contact() {
                   event.currentTarget.style.filter = 'none';
                 }}
               >
-                <MailIcon />
+                <ContactIcon type="email" size={20} style={{ marginRight: '0.2rem' }} />
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
               <div style={styles.helper}>I&apos;ll get back to you within 24-48 hours</div>

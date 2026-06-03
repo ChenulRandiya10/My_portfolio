@@ -1,3 +1,5 @@
+import { TechIcon } from './Icons';
+
 const accentColor = '#7c8cff';
 
 const skillGroups = [
@@ -179,7 +181,10 @@ function ProgressRow({ name, percent }) {
   return (
     <div style={{ display: 'grid', gap: '0.45rem' }}>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1rem' }}>
-        <span style={{ color: '#f3f4f6', fontSize: '1rem', fontWeight: 500 }}>{name}</span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+          <TechIcon name={name} size={22} />
+          <span style={{ color: '#f3f4f6', fontSize: '1rem', fontWeight: 500 }}>{name}</span>
+        </div>
         <span style={{ color: '#f3f4f6', fontSize: '0.95rem', fontWeight: 600 }}>{percent}%</span>
       </div>
       <div style={{ height: '10px', borderRadius: '999px', background: '#1f2937', overflow: 'hidden' }}>
@@ -200,7 +205,7 @@ function ProgressRow({ name, percent }) {
 export default function Skills() {
   return (
     <section id="skills" style={{ padding: '4rem 2rem', background: '#0f172a', color: '#e5e7eb' }}>
-      <h2 style={{ textAlign: 'center', marginBottom: '2rem' }}>My Skills</h2>
+      <h2 style={{ textAlign: 'center', marginBottom: '2rem' }}>Technologies &amp; Tools</h2>
       <p style={{ maxWidth: '820px', margin: '0 auto 2.25rem', textAlign: 'center', color: '#cbd5e1', lineHeight: 1.7 }}>
         Here are the technologies and tools I&apos;ve been working with. I&apos;m always eager to learn new technologies and improve my skills.
       </p>

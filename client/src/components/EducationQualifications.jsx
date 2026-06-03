@@ -1,3 +1,5 @@
+import { TechIcon } from './Icons';
+
 const bscHighlights = ['Specialized in Information Technology', 'Pursuing full-stack development expertise', 'Hands-on projects in web and mobile development'];
 
 const bscSkills = ['Full-stack Development', 'JavaScript', 'React.js', 'Node.js', 'MongoDB', 'Java', 'Python', 'Database Design'];
@@ -88,8 +90,8 @@ function EducationCard({ period, title, institution, subtitle, highlightsList, s
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
-                  gap: '0.4rem',
-                  padding: '0.72rem 1rem',
+                  gap: '0.5rem',
+                  padding: '0.6rem 0.9rem',
                   borderRadius: '999px',
                   background: 'rgba(51, 65, 85, 0.96)',
                   border: '1px solid rgba(148, 163, 184, 0.14)',
@@ -98,7 +100,7 @@ function EducationCard({ period, title, institution, subtitle, highlightsList, s
                   fontWeight: 600,
                 }}
               >
-                <span style={{ width: '0.45rem', height: '0.45rem', borderRadius: '999px', background: '#4f86ff', display: 'inline-block' }} />
+                <TechIcon name={skill} size={18} />
                 {skill}
               </span>
             ))}

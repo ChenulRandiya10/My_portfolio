@@ -1,3 +1,5 @@
+import { TechIcon, ProjectLogo } from './Icons';
+
 const projects = [
   { 
     title: 'D and S Creations Advertising Agency', 
@@ -75,11 +77,9 @@ export default function Projects() {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              fontSize: '3rem',
               fontWeight: 'bold',
-              color: 'rgba(96, 165, 250, 0.3)'
             }}>
-              📱
+              <ProjectLogo title={p.title} size={90} />
             </div>
             
             <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', flex: 1 }}>
@@ -99,11 +99,15 @@ export default function Projects() {
                   <span key={t} style={{ 
                     background: 'rgba(139, 92, 246, 0.2)', 
                     color: '#c4b5fd', 
-                    padding: '0.4rem 0.8rem', 
+                    padding: '0.35rem 0.75rem', 
                     borderRadius: '20px', 
                     fontSize: '0.75rem',
-                    border: '1px solid rgba(139, 92, 246, 0.3)'
+                    border: '1px solid rgba(139, 92, 246, 0.3)',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.35rem'
                   }}>
+                    <TechIcon name={t} size={15} />
                     {t}
                   </span>
                 ))}
