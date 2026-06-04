@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { ContactIcon } from './Icons';
+import { ContactIcon, SendMessageIcon } from './Icons';
 
 const accentColor = '#7c8cff';
 
@@ -119,15 +119,12 @@ export default function Contact() {
       transition: 'transform 160ms ease, border-color 160ms ease, background 160ms ease',
     },
     infoIcon: {
-      width: '3.2rem',
-      height: '3.2rem',
-      borderRadius: '50%',
+      width: '3.75rem',
+      height: '3.75rem',
       display: 'inline-flex',
       alignItems: 'center',
       justifyContent: 'center',
       flexShrink: 0,
-      background: 'rgba(255, 255, 255, 0.04)',
-      border: '1px solid rgba(255, 255, 255, 0.08)',
     },
     infoLabel: {
       display: 'block',
@@ -155,17 +152,13 @@ export default function Contact() {
       alignItems: 'center',
     },
     socialLink: {
-      width: '44px',
-      height: '44px',
-      borderRadius: '999px',
-      border: '1px solid rgba(148, 163, 184, 0.16)',
-      background: 'rgba(15, 23, 42, 0.65)',
-      color: '#e2e8f0',
+      width: '52px',
+      height: '52px',
       display: 'inline-flex',
       alignItems: 'center',
       justifyContent: 'center',
       textDecoration: 'none',
-      transition: 'transform 160ms ease, border-color 160ms ease, background 160ms ease, color 160ms ease',
+      transition: 'transform 160ms ease',
     },
     formCard: {
       borderRadius: '18px',
@@ -294,7 +287,7 @@ export default function Contact() {
                     rel={href.startsWith('http') ? 'noreferrer' : undefined}
                   >
                     <span style={styles.infoIcon}>
-                      <ContactIcon type={type} size={28} />
+                      <ContactIcon type={type} size={40} />
                     </span>
                     <span>
                       <span style={styles.infoLabel}>{label}</span>
@@ -309,7 +302,7 @@ export default function Contact() {
             <div style={styles.followRow}>
               {socialLinks.map(({ label, href, type }) => (
                 <a key={label} href={href} target="_blank" rel="noreferrer" aria-label={label} title={label} style={styles.socialLink}>
-                  <ContactIcon type={type} size={24} />
+                  <ContactIcon type={type} size={36} />
                 </a>
               ))}
             </div>
@@ -370,7 +363,7 @@ export default function Contact() {
                   event.currentTarget.style.filter = 'none';
                 }}
               >
-                <ContactIcon type="email" size={20} style={{ marginRight: '0.2rem' }} />
+                <SendMessageIcon size={20} />
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
               <div style={styles.helper}>I&apos;ll get back to you within 24-48 hours</div>

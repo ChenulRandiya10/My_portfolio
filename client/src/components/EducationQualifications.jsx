@@ -91,7 +91,7 @@ function EducationCard({ period, title, institution, subtitle, highlightsList, s
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '0.5rem',
-                  padding: '0.6rem 0.9rem',
+                  padding: '0.65rem 1rem',
                   borderRadius: '999px',
                   background: 'rgba(51, 65, 85, 0.96)',
                   border: '1px solid rgba(148, 163, 184, 0.14)',
@@ -100,7 +100,7 @@ function EducationCard({ period, title, institution, subtitle, highlightsList, s
                   fontWeight: 600,
                 }}
               >
-                <TechIcon name={skill} size={18} />
+                <TechIcon name={skill} size={24} />
                 {skill}
               </span>
             ))}
