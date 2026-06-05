@@ -33,18 +33,27 @@ import { FaAws, FaPhone, FaMapMarkerAlt, FaLinkedin, FaGithub } from 'react-icon
 import { IoSend } from 'react-icons/io5';
 import { VscVscode } from 'react-icons/vsc';
 
+// Brand logo images (client/src/images/*.png)
+import css3Logo from '../images/CSS3.png';
+import msOfficeLogo from '../images/Microsoft Office.png';
+import msWordLogo from '../images/MS Word.png';
+import msExcelLogo from '../images/MS Excel.png';
+import msPowerPointLogo from '../images/MS PowerPoint.png';
+import socialMediaLogo from '../images/Social Media.png';
+
 export function normalizeSkillName(name) {
   return name.toLowerCase().replace(/[\s.&\-_]/g, '');
 }
 
-function Css3Icon({ size, style }) {
+function ImgIcon({ src, alt, size, style }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={{ flexShrink: 0, ...style }} xmlns="http://www.w3.org/2000/svg">
-      <path d="M2.5 2L4.5 20.5L12 22.5L19.5 20.5L21.5 2H2.5Z" fill="#1572B6" />
-      <path d="M12 3.7v17.2l5.9-1.6L19.3 3.7H12Z" fill="#33A9DC" />
-      <path d="M12 9.5H15.4L15.1 13.1L12 14V16.5L16.5 15.3L17.1 7.2H12V9.5ZM12 4.8H7L7.6 11H12V8.6H9.7L9.5 6.2H12V4.8Z" fill="#FFFFFF" />
-      <path d="M12 11H7.6L7.9 14.8L12 15.9V13.5L9.8 12.9L9.6 11H12V11Z" fill="#EBEBEB" />
-    </svg>
+    <img
+      src={src}
+      alt={alt}
+      width={size}
+      height={size}
+      style={{ width: size, height: size, objectFit: 'contain', flexShrink: 0, ...style }}
+    />
   );
 }
 
@@ -109,7 +118,7 @@ export function TechIcon({ name, size = 26, style = {} }) {
 
     case 'css3':
     case 'css':
-      return wrap(<Css3Icon size={size} style={style} />);
+      return wrap(<ImgIcon src={css3Logo} alt="CSS3" size={size} style={style} />);
 
     case 'tailwindcss':
     case 'tailwind':
@@ -220,40 +229,22 @@ export function TechIcon({ name, size = 26, style = {} }) {
       );
 
     case 'msword':
-      return wrap(
-        <svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={style} xmlns="http://www.w3.org/2000/svg">
-          <rect x="2" y="3" width="20" height="18" rx="2" fill="#2B579A" />
-          <path d="M6 7h8M6 11h12M6 15h10" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
-          <text x="12" y="15" fill="#FFF" fontFamily="sans-serif" fontWeight="900" fontSize="11" textAnchor="middle">W</text>
-        </svg>
-      );
+      return wrap(<ImgIcon src={msWordLogo} alt="MS Word" size={size} style={style} />);
 
     case 'msexcel':
-      return wrap(
-        <svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={style} xmlns="http://www.w3.org/2000/svg">
-          <rect x="2" y="3" width="20" height="18" rx="2" fill="#217346" />
-          <path d="M6 7h12M6 12h12M6 17h12M12 7v10" stroke="#FFFFFF" strokeWidth="1.5" />
-        </svg>
-      );
+      return wrap(<ImgIcon src={msExcelLogo} alt="MS Excel" size={size} style={style} />);
 
     case 'mspowerpoint':
-      return wrap(
-        <svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={style} xmlns="http://www.w3.org/2000/svg">
-          <rect x="2" y="3" width="20" height="18" rx="2" fill="#D24726" />
-          <circle cx="12" cy="11" r="4" stroke="#FFFFFF" strokeWidth="2" />
-          <path d="M12 11l3 2.5" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
-          <text x="7" y="9" fill="#FFF" fontFamily="sans-serif" fontWeight="900" fontSize="9">P</text>
-        </svg>
-      );
+      return wrap(<ImgIcon src={msPowerPointLogo} alt="MS PowerPoint" size={size} style={style} />);
 
     case 'officesuite':
-      return wrap(
-        <svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={style} xmlns="http://www.w3.org/2000/svg">
-          <rect x="3" y="3" width="18" height="18" rx="3" fill="#EB3C00" />
-          <path d="M7 7h10v10H7z" fill="#FFFFFF" />
-          <path d="M10 10h4v4h-4z" fill="#EB3C00" />
-        </svg>
-      );
+    case 'microsoftoffice':
+    case 'msoffice':
+      return wrap(<ImgIcon src={msOfficeLogo} alt="Microsoft Office" size={size} style={style} />);
+
+    case 'socialmedia':
+    case 'socialmediamanagement':
+      return wrap(<ImgIcon src={socialMediaLogo} alt="Social Media" size={size} style={style} />);
 
     default:
       return wrap(
