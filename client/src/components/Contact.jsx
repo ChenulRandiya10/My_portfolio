@@ -5,16 +5,16 @@ import { ContactIcon, SendMessageIcon } from './Icons';
 const accentColor = '#7c8cff';
 
 const contactItems = [
-  { label: 'Phone', value: '0753334782 / 0777456146', href: 'tel:0753334782', type: 'phone' },
-  { label: 'Location', value: 'No.223/1\'s/Suprime Terrace, Kurukulawa, Ragama, 11010 Ragama', href: 'https://maps.google.com/', type: 'location' },
-  { label: 'GitHub', value: 'ChenulRandiya10', href: 'https://github.com/ChenulRandiya10', type: 'github' },
-  { label: 'LinkedIn', value: 'chenul-randiya-382aa8293', href: 'https://linkedin.com/in/chenul-randiya-382aa8293', type: 'linkedin' },
+  { label: 'Phone', value: '+94 75 333 4782', href: 'tel:+94753334782', type: 'phone' },
+  { label: 'Location', value: 'Ragama, Sri Lanka', href: 'https://maps.google.com/', type: 'location' },
+  { label: 'GitHub', value: 'Chenul Randiya Marasinghe', href: 'https://github.com/ChenulRandiya10', type: 'github' },
+  { label: 'LinkedIn', value: 'Chenul Randiya Marasinghe', href: 'https://www.linkedin.com/in/chenul-randiya-marasinghe-382aa8293', type: 'linkedin' },
   { label: 'Email', value: 'chenulrandiya10@gmail.com', href: 'mailto:chenulrandiya10@gmail.com', type: 'email' },
 ];
 
 const socialLinks = [
   { label: 'GitHub', href: 'https://github.com/ChenulRandiya10', type: 'github' },
-  { label: 'LinkedIn', href: 'https://linkedin.com/in/chenul-randiya-382aa8293', type: 'linkedin' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/chenul-randiya-marasinghe-382aa8293', type: 'linkedin' },
 ];
 
 

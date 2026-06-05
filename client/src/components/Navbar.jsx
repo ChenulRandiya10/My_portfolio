@@ -1,116 +1,22 @@
 import { useEffect, useState } from 'react';
+import { FaBriefcase, FaEnvelope, FaFolderOpen, FaGithub, FaGraduationCap, FaHome, FaLinkedinIn, FaTools, FaUser } from 'react-icons/fa';
 
 const accentColor = '#7c8cff';
 
 const navItems = [
-  { href: '#home', label: 'Home', icon: HomeIcon },
-  { href: '#about', label: 'About', icon: UserIcon },
-  { href: '#work-experience', label: 'Work Experience', icon: BriefcaseIcon },
-  { href: '#education-qualifications', label: 'Education & Qualifications', icon: GraduationIcon },
-  { href: '#skills', label: 'Skills', icon: SkillsIcon },
-  { href: '#projects', label: 'Projects', icon: FolderIcon },
-  { href: '#contact', label: 'Contact', icon: MailIcon },
+  { href: '#home', label: 'Home', icon: FaHome },
+  { href: '#about', label: 'About', icon: FaUser },
+  { href: '#work-experience', label: 'Work Experience', icon: FaBriefcase },
+  { href: '#education-qualifications', label: 'Education & Qualifications', icon: FaGraduationCap },
+  { href: '#skills', label: 'Skills', icon: FaTools },
+  { href: '#projects', label: 'Projects', icon: FaFolderOpen },
+  { href: '#contact', label: 'Contact', icon: FaEnvelope },
 ];
 
 const socialItems = [
-  { href: 'https://github.com/ChenulRandiya10', label: 'GitHub', icon: GitHubIcon },
-  { href: 'https://linkedin.com/in/chenul-randiya-382aa8293', label: 'LinkedIn', icon: LinkedInIcon },
+  { href: 'https://github.com/ChenulRandiya10', label: 'GitHub', icon: FaGithub },
+  { href: 'https://www.linkedin.com/in/chenul-randiya-marasinghe-382aa8293', label: 'LinkedIn', icon: FaLinkedinIn },
 ];
-
-function IconShell({ children }) {
-  return (
-    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      {children}
-    </svg>
-  );
-}
-
-function HomeIcon() {
-  return (
-    <IconShell>
-      <path d="M4 11.5 12 4l8 7.5" />
-      <path d="M6.5 10.5V20h11V10.5" />
-      <path d="M10 20v-5h4v5" />
-    </IconShell>
-  );
-}
-
-function UserIcon() {
-  return (
-    <IconShell>
-      <circle cx="12" cy="8" r="3.2" />
-      <path d="M5.5 20c1.6-3.5 4.1-5.2 6.5-5.2S16.9 16.5 18.5 20" />
-    </IconShell>
-  );
-}
-
-function BriefcaseIcon() {
-  return (
-    <IconShell>
-      <rect x="4.5" y="7.5" width="15" height="12" rx="2" />
-      <path d="M9 7.5V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1.5" />
-      <path d="M4.5 12h15" />
-    </IconShell>
-  );
-}
-
-function GraduationIcon() {
-  return (
-    <IconShell>
-      <path d="m12 4 8 4.5-8 4.5-8-4.5L12 4Z" />
-      <path d="M6 10v4c0 1.7 2.7 3 6 3s6-1.3 6-3v-4" />
-      <path d="M20 9.5V15" />
-    </IconShell>
-  );
-}
-
-function SkillsIcon() {
-  return (
-    <IconShell>
-      <path d="m8.5 4 7 16" />
-      <path d="m15.5 4-7 16" />
-      <path d="M6 9h12" />
-      <path d="M5 15h14" />
-    </IconShell>
-  );
-}
-
-function FolderIcon() {
-  return (
-    <IconShell>
-      <path d="M4.5 7.5A2.5 2.5 0 0 1 7 5h3l2 2h6a1.5 1.5 0 0 1 1.5 1.5v8A2.5 2.5 0 0 1 17 19H7A2.5 2.5 0 0 1 4.5 16.5v-9Z" />
-    </IconShell>
-  );
-}
-
-function MailIcon() {
-  return (
-    <IconShell>
-      <rect x="4.5" y="6.5" width="15" height="11" rx="2" />
-      <path d="m5.5 8.5 6.5 5 6.5-5" />
-    </IconShell>
-  );
-}
-
-function GitHubIcon() {
-  return (
-    <IconShell>
-      <path d="M9 19c-4.2 1.5-4.2-1.9-5.9-2.4" />
-      <path d="M15 22v-3.2c0-.9.3-1.6.8-2.1-2.7.3-5.5-1.2-5.5-4.3 0-1 .4-2 1.1-2.8-.1-.3-.5-1.3.1-2.6 0 0 .9-.3 2.8 1a9.4 9.4 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .6 1.3.2 2.3.1 2.6.7.8 1.1 1.8 1.1 2.8 0 3.1-2.8 4.6-5.5 4.3.5.5.8 1.3.8 2.4V22" />
-      <path d="M9 19c0 1-.6 1.8-2.1 1.8" />
-    </IconShell>
-  );
-}
-
-function LinkedInIcon() {
-  return (
-    <IconShell>
-      <rect x="4.5" y="9" width="3" height="10" rx="1" />
-      <circle cx="6" cy="6.2" r="1.4" />
-      <path d="M11 19V9h3v1.7c.6-1.1 1.7-1.9 3.3-1.9 2.5 0 4.2 1.6 4.2 5V19h-3v-4.6c0-1.8-.7-2.7-2-2.7-1.4 0-2.5 1-2.5 3V19h-3Z" />
-    </IconShell>
-  );
-}
 
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState('home');
@@ -258,7 +164,7 @@ export default function Navbar() {
                   cursor: 'pointer',
                 }}
               >
-                <Icon />
+                <Icon size={20} />
               </a>
             );
           })}
@@ -305,7 +211,7 @@ export default function Navbar() {
                   cursor: 'pointer',
                 }}
               >
-                <Icon />
+                <Icon size={20} />
               </a>
             );
           })}

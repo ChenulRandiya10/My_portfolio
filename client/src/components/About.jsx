@@ -1,4 +1,5 @@
 import React from 'react'
+import { FaBolt, FaCheckCircle, FaGraduationCap } from 'react-icons/fa';
 
 const leadershipActivities = [
   { role: 'Volunteer Member', period: '2023 - Present', organization: 'SLIIT Faculty of Computing Students Community, Malabe' },
@@ -83,9 +84,9 @@ export default function About() {
             <article style={{ borderRadius: '14px', padding: '1.5rem', background: 'rgba(17,24,39,0.85)', border: '1px solid rgba(255,255,255,0.04)', boxShadow: '0 12px 40px rgba(0,0,0,0.35)' }}>
               <h3 style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', margin: '0 0 0.6rem', color: '#f8fafc' }}><span style={{ color: '#4f86ff' }}>{'</>'}</span> Who Am I?</h3>
               <div style={{ color: '#cbd5e1', lineHeight: 1.8 }}>
-                <p>I&apos;m Chenul Randiya, a passionate Software Engineering student at SLIIT with a strong foundation in backend development and system architecture. My journey in technology is driven by a deep curiosity for solving complex problems and creating efficient, scalable solutions.</p>
-                <p>With experience in full-stack development, I specialize in building robust web applications using modern technologies. I&apos;m particularly interested in system design, database optimization, and creating seamless user experiences.</p>
-                <p>When I&apos;m not coding, you can find me exploring new technologies, contributing to open-source projects, or sharing my knowledge with the developer community.</p>
+                <p>I&apos;m a passionate Information Technology student with a strong interest in software development, web technologies, and problem-solving. I enjoy turning ideas into practical digital solutions and continuously expanding my knowledge of modern technologies.</p>
+                <p>My experience includes developing web applications using the MERN stack, working with databases, and building responsive user interfaces. I am passionate about creating efficient, user-friendly applications while improving my skills in both frontend and backend development.</p>
+                <p>As a technology enthusiast, I am always eager to learn new tools, frameworks, and industry best practices. I enjoy taking on challenging projects that help me grow as a developer and prepare me for a successful career in the IT industry.</p>
               </div>
             </article>
           </div>
@@ -93,20 +94,29 @@ export default function About() {
           <div>
             <div style={{ display: 'flex', gap: '0.8rem', marginBottom: '1rem' }}>
               <div style={{ flex: 1, padding: '1rem', borderRadius: '12px', background: 'rgba(17,24,39,0.85)', border: '1px solid rgba(255,255,255,0.03)' }}>
-                <h4 style={{ margin: 0, color: '#f8fafc' }}>Performance First</h4>
-                <p style={{ marginTop: '0.5rem', color: '#cbd5e1', fontSize: '0.95rem' }}>I optimize for speed and efficiency, ensuring smooth user experiences even under heavy loads.</p>
+                <h4 style={{ margin: 0, color: '#f8fafc', display: 'flex', alignItems: 'center', gap: '0.55rem' }}>
+                  <span style={{ color: '#4f86ff', display: 'inline-flex' }}><FaBolt size={16} /></span>
+                  Performance First
+                </h4>
+                <p style={{ marginTop: '0.5rem', color: '#cbd5e1', fontSize: '0.95rem' }}>I focus on building fast, responsive, and efficient web applications that provide smooth user experiences across different devices and platforms.</p>
               </div>
               <div style={{ flex: 1, padding: '1rem', borderRadius: '12px', background: 'rgba(17,24,39,0.85)', border: '1px solid rgba(255,255,255,0.03)' }}>
-                <h4 style={{ margin: 0, color: '#f8fafc' }}>Best Practices</h4>
-                <p style={{ marginTop: '0.5rem', color: '#cbd5e1', fontSize: '0.95rem' }}>I follow industry best practices and stay updated with the latest trends and technologies.</p>
+                <h4 style={{ margin: 0, color: '#f8fafc', display: 'flex', alignItems: 'center', gap: '0.55rem' }}>
+                  <span style={{ color: '#4f86ff', display: 'inline-flex' }}><FaCheckCircle size={16} /></span>
+                  Best Practices
+                </h4>
+                <p style={{ marginTop: '0.5rem', color: '#cbd5e1', fontSize: '0.95rem' }}>I follow industry-standard development practices, write clean and maintainable code, and stay updated with the latest technologies and trends in software development.</p>
               </div>
             </div>
 
             <div style={{ padding: '1rem', borderRadius: '12px', background: 'rgba(17,24,39,0.85)', border: '1px solid rgba(255,255,255,0.03)' }}>
-              <h4 style={{ margin: '0 0 0.6rem', color: '#f8fafc' }}>Education</h4>
-              <div style={{ color: '#9fb0ff', fontWeight: 700 }}>BSc (Hons) in Software Engineering</div>
-              <div style={{ color: '#4f86ff', marginTop: '0.35rem' }}>Sri Lanka Institute of Information Technology (SLIIT)</div>
-              <div style={{ color: '#cbd5e1', marginTop: '0.5rem', fontSize: '0.95rem' }}>2023 - 2027</div>
+              <h4 style={{ margin: '0 0 0.6rem', color: '#f8fafc', display: 'flex', alignItems: 'center', gap: '0.55rem' }}>
+                <span style={{ color: '#4f86ff', display: 'inline-flex' }}><FaGraduationCap size={16} /></span>
+                Education
+              </h4>
+              <div style={{ color: '#9fb0ff', fontWeight: 700 }}>BSc (Hons) in Information Technology</div>
+              <div style={{ color: '#4f86ff', marginTop: '0.35rem', fontWeight: 700 }}>Sri Lanka Institute of Information Technology (SLIIT)</div>
+              <div style={{ color: '#cbd5e1', marginTop: '0.55rem', fontSize: '0.95rem', fontWeight: 600 }}>2023 - Present</div>
             </div>
           </div>
         </div>

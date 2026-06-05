@@ -1,3 +1,5 @@
+import { TechIcon } from './Icons';
+
 const workExperiences = [
   {
     title: 'Intern',
@@ -11,7 +13,7 @@ const workExperiences = [
       'Assisting with Document Management System operations',
       'Maintaining organized file handling and record keeping',
     ],
-    technologies: ['Document Management System', 'MS Office', 'Customer Service'],
+    technologies: ['Document Management System', 'Microsoft Office', 'Customer Service'],
     skills: ['Document Processing', 'Customer Service', 'File Management', 'Administrative Support'],
   },
   {
@@ -125,7 +127,7 @@ export default function WorkExperience() {
 
             <div style={{ marginTop: '1.9rem' }}>
               <h4 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', margin: '0 0 0.9rem', color: '#f8fafc', fontSize: '1.05rem' }}>
-                <span style={{ color: '#4f86ff' }}>{'</>'}</span> Technologies &amp; Tools
+                <span style={{ color: '#4f86ff' }}>{'</>'}</span> Technologies & Tools
               </h4>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
                 {exp.technologies.map((tool) => (
@@ -134,7 +136,7 @@ export default function WorkExperience() {
                     style={{
                       display: 'inline-flex',
                       alignItems: 'center',
-                      gap: '0.4rem',
+                      gap: '0.5rem',
                       padding: '0.7rem 1rem',
                       borderRadius: '999px',
                       background: 'rgba(51, 65, 85, 0.96)',
@@ -144,7 +146,7 @@ export default function WorkExperience() {
                       fontWeight: 600,
                     }}
                   >
-                    <span style={{ width: '0.45rem', height: '0.45rem', borderRadius: '999px', background: '#4f86ff', display: 'inline-block' }} />
+                    <TechIcon name={tool} size={22} />
                     {tool}
                   </span>
                 ))}

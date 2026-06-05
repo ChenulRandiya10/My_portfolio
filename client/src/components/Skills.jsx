@@ -10,8 +10,8 @@ const skillGroups = [
       { name: 'Python', percent: 75 },
       { name: 'Java', percent: 70 },
       { name: 'Kotlin', percent: 70 },
-      { name: 'C++', percent: 65 },
-      { name: 'C#', percent: 70 },
+      { name: 'C++', percent: 70 },
+      { name: 'C#', percent: 65 },
       { name: 'PHP', percent: 65 },
     ],
   },
@@ -38,7 +38,7 @@ const skillGroups = [
     items: [
       { name: 'MongoDB', percent: 80 },
       { name: 'MySQL', percent: 80 },
-      { name: 'PostgreSQL', percent: 75 },
+      { name: 'PostgreSQL', percent: 60 },
     ],
   },
   {
@@ -85,35 +85,42 @@ function ProgressRow({ name, percent }) {
 
 export default function Skills() {
   return (
-    <section style={{ padding: '4rem 2rem', background: '#0f172a', color: '#fff' }}>
-      <h2 style={{ textAlign: 'center' }}>Skills</h2>
+    <section id="skills" style={{ padding: '4.5rem 1.5rem 4rem', background: '#0f172a', color: '#fff', scrollMarginTop: '110px' }}>
+      <div style={{ maxWidth: '1120px', margin: '0 auto' }}>
+        <div style={{ textAlign: 'center', color: '#4f86ff', fontSize: '0.82rem', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: '0.85rem' }}>
+          Technical Expertise
+        </div>
+        <h2 style={{ textAlign: 'center', margin: 0, color: '#f8fafc', fontSize: 'clamp(2.1rem, 4vw, 3.5rem)', lineHeight: 1.05 }}>Skills</h2>
 
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-          gap: '1.5rem',
-          marginTop: '2rem',
-        }}
-      >
-        {skillGroups.map((group) => (
-          <div
-            key={group.title}
-            style={{
-              background: '#1e293b',
-              padding: '1.5rem',
-              borderRadius: 16,
-            }}
-          >
-            <h3 style={{ marginBottom: '1rem' }}>{group.title}</h3>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+            gap: '1.5rem',
+            marginTop: '2rem',
+          }}
+        >
+          {skillGroups.map((group) => (
+            <div
+              key={group.title}
+              style={{
+                background: 'rgba(17, 24, 39, 0.92)',
+                border: '1px solid rgba(148, 163, 184, 0.14)',
+                padding: '1.5rem',
+                borderRadius: 16,
+                boxShadow: '0 18px 50px rgba(0, 0, 0, 0.30)',
+              }}
+            >
+              <h3 style={{ marginBottom: '1rem', color: '#f8fafc' }}>{group.title}</h3>
 
-            <div style={{ display: 'grid', gap: '1rem' }}>
-              {group.items.map((item) => (
-                <ProgressRow key={item.name} name={item.name} percent={item.percent} />
-              ))}
+              <div style={{ display: 'grid', gap: '1rem' }}>
+                {group.items.map((item) => (
+                  <ProgressRow key={item.name} name={item.name} percent={item.percent} />
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

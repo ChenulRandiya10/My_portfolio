@@ -33,6 +33,12 @@ import { FaAws, FaPhone, FaMapMarkerAlt, FaLinkedin, FaGithub } from 'react-icon
 import { IoSend } from 'react-icons/io5';
 import { VscVscode } from 'react-icons/vsc';
 
+const pngImages = import.meta.glob('../images/*.png', { eager: true, import: 'default' });
+
+function getPngSrc(fileName) {
+  return pngImages[`../images/${fileName}`];
+}
+
 export function normalizeSkillName(name) {
   return name.toLowerCase().replace(/[\s.&\-_]/g, '');
 }
@@ -40,10 +46,10 @@ export function normalizeSkillName(name) {
 function Css3Icon({ size, style }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={{ flexShrink: 0, ...style }} xmlns="http://www.w3.org/2000/svg">
-      <path d="M2.5 2L4.5 20.5L12 22.5L19.5 20.5L21.5 2H2.5Z" fill="#1572B6" />
-      <path d="M12 3.7v17.2l5.9-1.6L19.3 3.7H12Z" fill="#33A9DC" />
-      <path d="M12 9.5H15.4L15.1 13.1L12 14V16.5L16.5 15.3L17.1 7.2H12V9.5ZM12 4.8H7L7.6 11H12V8.6H9.7L9.5 6.2H12V4.8Z" fill="#FFFFFF" />
-      <path d="M12 11H7.6L7.9 14.8L12 15.9V13.5L9.8 12.9L9.6 11H12V11Z" fill="#EBEBEB" />
+      <path d="M3 2l1.8 20L12 24l7.2-2L21 2H3z" fill="#264DE4"/>
+      <path d="M12 3.5v17.3l5.8-1.6L19.3 3.5H12z" fill="#2965F1"/>
+      <path d="M12 9.5H8.5L8.8 13l3.2.9V16.4l-3.9-1.1-.3-3.6H6.3l.5 6.1L12 19.1V16.4l-3-.85-.2-2.05H12V9.5zM15.4 13.1L15.1 16 12 16.9v3l4.9-1.4.7-7.4H12v2.05h3.15l.25-1.05z" fill="white"/>
+      <path d="M12 9.5v4H8.8L8.5 9.5H12zm0 6.9l-.05.02-3-.85v.02L12 16.4v-.01zm3.4-6.9H12v2.05h3.15l-.25 2.55-3 .85v3l4.9-1.4.7-7.4-.55.35z" fill="#EBEBEB"/>
     </svg>
   );
 }
@@ -73,6 +79,24 @@ function IconBox({ size, children, style }) {
 export function TechIcon({ name, size = 26, style = {} }) {
   const norm = normalizeSkillName(name);
   const wrap = (node) => <IconBox size={size}>{node}</IconBox>;
+  const wrapPng = (fileName) => {
+    const src = getPngSrc(fileName);
+    if (!src) return null;
+
+    return wrap(
+      <img
+        src={src}
+        alt={name}
+        style={{
+          width: '100%',
+          height: '100%',
+          objectFit: 'contain',
+          display: 'block',
+          ...style,
+        }}
+      />
+    );
+  };
 
   switch (norm) {
     case 'javascript':
@@ -109,7 +133,7 @@ export function TechIcon({ name, size = 26, style = {} }) {
 
     case 'css3':
     case 'css':
-      return wrap(<Css3Icon size={size} style={style} />);
+      return wrapPng('CSS3.png') ?? wrap(<Css3Icon size={size} style={style} />);
 
     case 'tailwindcss':
     case 'tailwind':
@@ -163,7 +187,7 @@ export function TechIcon({ name, size = 26, style = {} }) {
 
     case 'androidstudio':
     case 'android':
-      return wrap(<SiAndroidstudio size={size} color="#3DDC84" style={style} />);
+      return wrapPng('Android Studio.png') ?? wrap(<SiAndroidstudio size={size} color="#3DDC84" style={style} />);
 
     case 'firebase':
       return wrap(<SiFirebase size={size} color="#FFCA28" style={style} />);
@@ -211,47 +235,116 @@ export function TechIcon({ name, size = 26, style = {} }) {
       );
 
     case 'informationcommunicationtechnology':
+    case 'ict':
       return wrap(
         <svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={style} xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12" cy="12" r="9" stroke="#3B82F6" strokeWidth="1.8" />
-          <circle cx="12" cy="12" r="4" stroke="#60A5FA" strokeWidth="1.5" />
-          <path d="M12 2v20M2 12h20" stroke="#3B82F6" strokeWidth="1.2" />
+          {/* Globe/Network representation for ICT */}
+          <circle cx="12" cy="12" r="9" stroke="#3B82F6" strokeWidth="1.5" fill="none" />
+          <ellipse cx="12" cy="12" rx="9" ry="4" stroke="#60A5FA" strokeWidth="1.2" fill="none" />
+          <ellipse cx="12" cy="12" rx="4" ry="9" stroke="#60A5FA" strokeWidth="1.2" fill="none" />
+          <circle cx="12" cy="12" r="2.5" fill="#3B82F6" />
+          <circle cx="12" cy="4" r="1.2" fill="#60A5FA" />
+          <circle cx="12" cy="20" r="1.2" fill="#60A5FA" />
+          <circle cx="4" cy="12" r="1.2" fill="#60A5FA" />
+          <circle cx="20" cy="12" r="1.2" fill="#60A5FA" />
         </svg>
       );
 
     case 'msword':
-      return wrap(
-        <svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={style} xmlns="http://www.w3.org/2000/svg">
-          <rect x="2" y="3" width="20" height="18" rx="2" fill="#2B579A" />
-          <path d="M6 7h8M6 11h12M6 15h10" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
-          <text x="12" y="15" fill="#FFF" fontFamily="sans-serif" fontWeight="900" fontSize="11" textAnchor="middle">W</text>
-        </svg>
+      return (
+        wrapPng('MS Word.png') ??
+        wrap(
+          <svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={style} xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" fill="#2B579A"/>
+            <path d="M14 2v6h6" fill="#1A3F6F"/>
+            <text x="12" y="18" fill="white" fontFamily="Arial" fontWeight="bold" fontSize="9" textAnchor="middle">W</text>
+          </svg>
+        )
       );
 
     case 'msexcel':
-      return wrap(
-        <svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={style} xmlns="http://www.w3.org/2000/svg">
-          <rect x="2" y="3" width="20" height="18" rx="2" fill="#217346" />
-          <path d="M6 7h12M6 12h12M6 17h12M12 7v10" stroke="#FFFFFF" strokeWidth="1.5" />
-        </svg>
+      return (
+        wrapPng('MS Excel.png') ??
+        wrap(
+          <svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={style} xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" fill="#217346"/>
+            <path d="M14 2v6h6" fill="#145C30"/>
+            <path d="M9 13l1.5 2.5L12 13m0 0l1.5 2.5L15 13" stroke="white" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        )
       );
 
     case 'mspowerpoint':
-      return wrap(
-        <svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={style} xmlns="http://www.w3.org/2000/svg">
-          <rect x="2" y="3" width="20" height="18" rx="2" fill="#D24726" />
-          <circle cx="12" cy="11" r="4" stroke="#FFFFFF" strokeWidth="2" />
-          <path d="M12 11l3 2.5" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
-          <text x="7" y="9" fill="#FFF" fontFamily="sans-serif" fontWeight="900" fontSize="9">P</text>
-        </svg>
+      return (
+        wrapPng('MS PowerPoint.png') ??
+        wrap(
+          <svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={style} xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" fill="#C43E1C"/>
+            <path d="M14 2v6h6" fill="#8F2D12"/>
+            <circle cx="11" cy="15" r="3" fill="none" stroke="white" strokeWidth="1.2"/>
+            <path d="M11 12v6M8 15h6" stroke="white" strokeWidth="1.2" strokeLinecap="round"/>
+          </svg>
+        )
       );
 
     case 'officesuite':
+    case 'microsoftoffice':
+      return (
+        wrapPng('Microsoft Office.png') ??
+        wrapPng('Office Suite.png') ??
+        wrap(
+          <svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={style} xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="3" width="8" height="8" rx="1" fill="#F25022"/>
+            <rect x="13" y="3" width="8" height="8" rx="1" fill="#7FBA00"/>
+            <rect x="3" y="13" width="8" height="8" rx="1" fill="#00A4EF"/>
+            <rect x="13" y="13" width="8" height="8" rx="1" fill="#FFB900"/>
+          </svg>
+        )
+      );
+
+    case 'documentmanagementsystem':
+    case 'dms':
       return wrap(
         <svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={style} xmlns="http://www.w3.org/2000/svg">
-          <rect x="3" y="3" width="18" height="18" rx="3" fill="#EB3C00" />
-          <path d="M7 7h10v10H7z" fill="#FFFFFF" />
-          <path d="M10 10h4v4h-4z" fill="#EB3C00" />
+          <rect x="4" y="2" width="16" height="20" rx="2" fill="#6366F1" />
+          <path d="M8 8h8M8 12h8M8 16h5" stroke="#FFFFFF" strokeWidth="1.5" strokeLinecap="round" />
+          <circle cx="17" cy="17" r="3" fill="#10B981" />
+          <path d="M15.5 17l1 1 2-2" stroke="#FFFFFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      );
+
+    case 'customerservice':
+    case 'customersupport':
+      return wrap(
+        <svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={style} xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="10" r="4" fill="#8B5CF6" />
+          <path d="M4 20c0-4 4-6 8-6s8 2 8 6" stroke="#8B5CF6" strokeWidth="2" strokeLinecap="round" />
+          <path d="M16 8c2 0 4-1.5 4-4 0 0-1 3-4 3" stroke="#A78BFA" strokeWidth="1.5" strokeLinecap="round" />
+        </svg>
+      );
+
+    case 'socialmedia':
+    case 'socialmediamanagement':
+      return (
+        wrapPng('Social Media.png') ??
+        wrap(
+          <svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={style} xmlns="http://www.w3.org/2000/svg">
+            <circle cx="8" cy="8" r="3.5" fill="#EC4899" />
+            <circle cx="16" cy="8" r="3.5" fill="#8B5CF6" />
+            <circle cx="12" cy="16" r="3.5" fill="#3B82F6" />
+            <path d="M10.5 9.5L13.5 14M10.5 14L13.5 9.5" stroke="#FFFFFF" strokeWidth="1.2" strokeLinecap="round" />
+          </svg>
+        )
+      );
+
+    case 'legaldocumentation':
+    case 'legal':
+      return wrap(
+        <svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={style} xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="2" width="16" height="20" rx="2" fill="#6B7280" />
+          <path d="M8 8h8M8 12h8M8 16h6" stroke="#FFFFFF" strokeWidth="1.5" strokeLinecap="round" />
+          <circle cx="18" cy="18" r="4" fill="#F59E0B" />
+          <path d="M16.5 18l1.5 1.5 3-3" stroke="#FFFFFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       );
 
