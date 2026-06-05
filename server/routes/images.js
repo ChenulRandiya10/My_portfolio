@@ -1,7 +1,17 @@
 import express from 'express';
+import mongoose from 'mongoose';
 import Image from '../models/Image.js';
 
 const router = express.Router();
+
+router.use((req, res, next) => {
+  if (mongoose.connection.readyState !== 1) {
+    return res
+      .status(503)
+      .json({ error: 'Database not connected. Set MONGO_URI in server/.env to enable image endpoints.' });
+  }
+  next();
+});
 
 // Create image metadata record
 router.post('/', async (req, res) => {
