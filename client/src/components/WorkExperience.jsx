@@ -1,3 +1,5 @@
+import { TechIcon } from './Icons';
+
 const workExperiences = [
   {
     title: 'Intern',
@@ -144,7 +146,7 @@ export default function WorkExperience() {
                       fontWeight: 600,
                     }}
                   >
-                    <span style={{ width: '0.45rem', height: '0.45rem', borderRadius: '999px', background: '#4f86ff', display: 'inline-block' }} />
+                    <TechIcon name={tool} size={20} />
                     {tool}
                   </span>
                 ))}
