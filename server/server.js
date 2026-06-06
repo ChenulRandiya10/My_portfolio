@@ -19,6 +19,11 @@ app.use(cors());
 app.use(express.json());
 app.use('/api/contact', contactRoute);
 app.use('/api/images', imagesRoute);
+app.use(express.static(join(__dirname, '../client/dist')));
+
+app.get('*', (req, res) => {
+  res.sendFile(join(__dirname, '../client/dist/index.html'));
+});
 
 app.listen(port, () => console.log(`Server running on port ${port}`));
 

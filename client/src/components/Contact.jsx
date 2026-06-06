@@ -20,7 +20,7 @@ const socialLinks = [
 
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
+  const [form, setForm] = useState({ name: '', email: '', companyName: '', subject: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState('');
 
@@ -30,15 +30,20 @@ export default function Contact() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    if (form.message.trim().length < 15) {
+      setStatus('Message must be at least 15 characters.');
+      return;
+    }
+
     setIsSubmitting(true);
     setStatus('');
 
     try {
       await axios.post('/api/contact', form);
       setStatus('Message sent successfully.');
-      setForm({ name: '', email: '', subject: '', message: '' });
-    } catch {
-      setStatus('Something went wrong. Please try again.');
+      setForm({ name: '', email: '', companyName: '', subject: '', message: '' });
+    } catch (error) {
+      setStatus(error.response?.data?.error || 'Something went wrong. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -328,7 +333,12 @@ export default function Contact() {
                 <input style={styles.input} type="email" placeholder="your.email@example.com" value={form.email} onChange={handleChange('email')} required />
               </label>
 
-              <label style={{ ...styles.field, ...styles.fullWidth }}>
+              <label style={styles.field}>
+                <span style={styles.label}>Company Name (Optional)</span>
+                <input style={styles.input} placeholder="Company or organization" value={form.companyName} onChange={handleChange('companyName')} />
+              </label>
+
+              <label style={styles.field}>
                 <span style={styles.label}>Subject (Optional)</span>
                 <input style={styles.input} placeholder="What&apos;s this about?" value={form.subject} onChange={handleChange('subject')} />
               </label>
@@ -340,6 +350,7 @@ export default function Contact() {
                   placeholder="How can I help you?"
                   value={form.message}
                   onChange={handleChange('message')}
+                  minLength={15}
                   required
                 />
               </label>

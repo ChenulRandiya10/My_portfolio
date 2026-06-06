@@ -217,6 +217,9 @@ export function TechIcon({ name, size = 26, style = {} }) {
     case 'playwright':
       return wrapImage('Playwright.png');
 
+    case 'openpyxl':
+      return wrapImage('OpenPyXL.png');
+
     case 'restapi':
     case 'restapis':
       return wrap(<SiOpenapiinitiative size={size} color="#6BA539" style={style} />);
@@ -288,6 +291,7 @@ export function TechIcon({ name, size = 26, style = {} }) {
       );
 
     case 'msexcel':
+    case 'excelautomation':
       return (
         wrapImage('MS Excel.png') ??
         wrap(
