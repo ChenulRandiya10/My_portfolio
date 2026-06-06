@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import axios from 'axios';
+import api from '../utils/api';
 
 function formatDateTime(value) {
   if (!value) {
@@ -37,7 +37,7 @@ export default function Messages() {
     async function loadMessages() {
       setIsLoading(true);
       try {
-        const response = await axios.get('/api/contact', {
+        const response = await api.get('/contact', {
           headers: { 'x-admin-password': password },
         });
         if (isMounted) {
@@ -80,7 +80,7 @@ export default function Messages() {
     setAuthError('');
 
     try {
-      await axios.post('/api/contact/admin-login', { password });
+      await api.post('/contact/admin-login', { password });
       sessionStorage.setItem('messagesAdminPassword', password);
       setIsAuthenticated(true);
     } catch {
@@ -106,8 +106,8 @@ export default function Messages() {
     );
 
     try {
-      const response = await axios.patch(
-        `/api/contact/${id}/marked`,
+      const response = await api.patch(
+        `/contact/${id}/marked`,
         { isMarked },
         { headers: { 'x-admin-password': password } }
       );

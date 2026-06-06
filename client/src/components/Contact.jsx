@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import axios from 'axios';
+import api from '../utils/api';
 import { ContactIcon, SendMessageIcon } from './Icons';
 
 const accentColor = '#7c8cff';
@@ -39,7 +39,7 @@ export default function Contact() {
     setStatus('');
 
     try {
-      await axios.post('/api/contact', form);
+      await api.post('/contact', form);
       setStatus('Message sent successfully.');
       setForm({ name: '', email: '', companyName: '', subject: '', message: '' });
     } catch (error) {
