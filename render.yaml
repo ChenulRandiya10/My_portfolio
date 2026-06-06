@@ -1,0 +1,27 @@
+services:
+  # Backend API Service
+  - type: web
+    name: portfolio-api
+    env: node
+    region: singapore
+    plan: free
+    branch: main
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5005
+      - key: MONGO_URI
+        sync: false
+      - key: CLIENT_URL
+        sync: false
+      - key: MESSAGES_ADMIN_PASSWORD
+        sync: false
+    healthCheckPath: /api/contact
+    autoDeploy: true
+
+# MongoDB Atlas is used for database (external service)
+# No database service defined here as we use MongoDB Atlas
