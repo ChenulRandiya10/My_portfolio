@@ -22,6 +22,7 @@ import {
   SiPostgresql,
   SiGit,
   SiGithub,
+  SiGithubactions,
   SiEclipseide,
   SiPostman,
   SiDiagramsdotnet,
@@ -33,10 +34,10 @@ import { FaAws, FaPhone, FaMapMarkerAlt, FaLinkedin, FaGithub } from 'react-icon
 import { IoSend } from 'react-icons/io5';
 import { VscVscode } from 'react-icons/vsc';
 
-const pngImages = import.meta.glob('../images/*.png', { eager: true, import: 'default' });
+const imageAssets = import.meta.glob('../images/*.{png,webp}', { eager: true, import: 'default' });
 
-function getPngSrc(fileName) {
-  return pngImages[`../images/${fileName}`];
+function getImageSrc(fileName) {
+  return imageAssets[`../images/${fileName}`];
 }
 
 export function normalizeSkillName(name) {
@@ -50,6 +51,16 @@ function Css3Icon({ size, style }) {
       <path d="M12 3.5v17.3l5.8-1.6L19.3 3.5H12z" fill="#2965F1"/>
       <path d="M12 9.5H8.5L8.8 13l3.2.9V16.4l-3.9-1.1-.3-3.6H6.3l.5 6.1L12 19.1V16.4l-3-.85-.2-2.05H12V9.5zM15.4 13.1L15.1 16 12 16.9v3l4.9-1.4.7-7.4H12v2.05h3.15l.25-1.05z" fill="white"/>
       <path d="M12 9.5v4H8.8L8.5 9.5H12zm0 6.9l-.05.02-3-.85v.02L12 16.4v-.01zm3.4-6.9H12v2.05h3.15l-.25 2.55-3 .85v3l4.9-1.4.7-7.4-.55.35z" fill="#EBEBEB"/>
+    </svg>
+  );
+}
+
+function PlaywrightIcon({ size, style }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={{ flexShrink: 0, ...style }} xmlns="http://www.w3.org/2000/svg">
+      <path d="M6.5 5.5h5.6c2.2 0 3.7 1.3 3.7 3.3 0 2-1.5 3.3-3.7 3.3H9.3v6.1H6.5V5.5Z" fill="#2EAD33" />
+      <path d="M12.1 9.6c0 .5-.4.9-.9.9H9.3V7.8h1.9c.5 0 .9.4.9.9v.9Z" fill="#0E6B1C" />
+      <path d="M17.2 6.1c1.6 0 2.8 1.2 2.8 2.8v9.1c0 1.6-1.2 2.8-2.8 2.8h-5.3v-2.6h5.3c.2 0 .3-.1.3-.3V8.9c0-.2-.1-.3-.3-.3h-2.3V6.1h2.3Z" fill="#34D399" />
     </svg>
   );
 }
@@ -79,8 +90,8 @@ function IconBox({ size, children, style }) {
 export function TechIcon({ name, size = 26, style = {} }) {
   const norm = normalizeSkillName(name);
   const wrap = (node) => <IconBox size={size}>{node}</IconBox>;
-  const wrapPng = (fileName) => {
-    const src = getPngSrc(fileName);
+  const wrapImage = (fileName) => {
+    const src = getImageSrc(fileName);
     if (!src) return null;
 
     return wrap(
@@ -133,11 +144,14 @@ export function TechIcon({ name, size = 26, style = {} }) {
 
     case 'css3':
     case 'css':
-      return wrapPng('CSS3.png') ?? wrap(<Css3Icon size={size} style={style} />);
+      return wrapImage('CSS3.png') ?? wrap(<Css3Icon size={size} style={style} />);
 
     case 'tailwindcss':
     case 'tailwind':
       return wrap(<SiTailwindcss size={size} color="#38BDF8" style={style} />);
+
+    case 'vite':
+      return wrapImage('Vite.png');
 
     case 'nodejs':
     case 'node':
@@ -167,6 +181,10 @@ export function TechIcon({ name, size = 26, style = {} }) {
     case 'github':
       return wrap(<SiGithub size={size} color="#ffffff" style={style} />);
 
+    case 'githubactions':
+    case 'githubaction':
+      return wrap(<SiGithubactions size={size} color="#2088FF" style={style} />);
+
     case 'vscode':
       return wrap(<VscVscode size={size} color="#007ACC" style={style} />);
 
@@ -187,10 +205,17 @@ export function TechIcon({ name, size = 26, style = {} }) {
 
     case 'androidstudio':
     case 'android':
-      return wrapPng('Android Studio.png') ?? wrap(<SiAndroidstudio size={size} color="#3DDC84" style={style} />);
+      return wrapImage('Android Studio.png') ?? wrap(<SiAndroidstudio size={size} color="#3DDC84" style={style} />);
 
     case 'firebase':
       return wrap(<SiFirebase size={size} color="#FFCA28" style={style} />);
+
+    case 'jwt':
+    case 'jsonwebtokens':
+      return wrapImage('JWT.webp');
+
+    case 'playwright':
+      return wrapImage('Playwright.png');
 
     case 'restapi':
     case 'restapis':
@@ -252,7 +277,7 @@ export function TechIcon({ name, size = 26, style = {} }) {
 
     case 'msword':
       return (
-        wrapPng('MS Word.png') ??
+        wrapImage('MS Word.png') ??
         wrap(
           <svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={style} xmlns="http://www.w3.org/2000/svg">
             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" fill="#2B579A"/>
@@ -264,7 +289,7 @@ export function TechIcon({ name, size = 26, style = {} }) {
 
     case 'msexcel':
       return (
-        wrapPng('MS Excel.png') ??
+        wrapImage('MS Excel.png') ??
         wrap(
           <svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={style} xmlns="http://www.w3.org/2000/svg">
             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" fill="#217346"/>
@@ -276,7 +301,7 @@ export function TechIcon({ name, size = 26, style = {} }) {
 
     case 'mspowerpoint':
       return (
-        wrapPng('MS PowerPoint.png') ??
+        wrapImage('MS PowerPoint.png') ??
         wrap(
           <svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={style} xmlns="http://www.w3.org/2000/svg">
             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z" fill="#C43E1C"/>
@@ -290,8 +315,8 @@ export function TechIcon({ name, size = 26, style = {} }) {
     case 'officesuite':
     case 'microsoftoffice':
       return (
-        wrapPng('Microsoft Office.png') ??
-        wrapPng('Office Suite.png') ??
+        wrapImage('Microsoft Office.png') ??
+        wrapImage('Office Suite.png') ??
         wrap(
           <svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={style} xmlns="http://www.w3.org/2000/svg">
             <rect x="3" y="3" width="8" height="8" rx="1" fill="#F25022"/>
@@ -326,7 +351,7 @@ export function TechIcon({ name, size = 26, style = {} }) {
     case 'socialmedia':
     case 'socialmediamanagement':
       return (
-        wrapPng('Social Media.png') ??
+        wrapImage('Social Media.png') ??
         wrap(
           <svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={style} xmlns="http://www.w3.org/2000/svg">
             <circle cx="8" cy="8" r="3.5" fill="#EC4899" />

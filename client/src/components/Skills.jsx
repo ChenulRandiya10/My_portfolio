@@ -31,6 +31,7 @@ const skillGroups = [
       { name: 'Express.js', percent: 85 },
       { name: 'Spring Boot', percent: 75 },
       { name: 'REST APIs', percent: 80 },
+      { name: 'JWT', percent: 70 },
     ],
   },
   {
@@ -46,6 +47,7 @@ const skillGroups = [
     items: [
       { name: 'Git', percent: 85 },
       { name: 'GitHub', percent: 90 },
+      { name: 'GitHub Actions', percent: 70 },
       { name: 'VS Code', percent: 90 },
       { name: 'Eclipse', percent: 70 },
       { name: 'Postman', percent: 80 },
@@ -54,6 +56,8 @@ const skillGroups = [
       { name: 'Firebase', percent: 75 },
       { name: 'draw.io', percent: 75 },
       { name: 'Figma', percent: 75 },
+      { name: 'Vite', percent: 75 },
+      { name: 'Playwright', percent: 70 },
     ],
   },
 ];
@@ -93,6 +97,7 @@ export default function Skills() {
         <h2 style={{ textAlign: 'center', margin: 0, color: '#f8fafc', fontSize: 'clamp(2.1rem, 4vw, 3.5rem)', lineHeight: 1.05 }}>Skills</h2>
 
         <div
+          className="skills-groups-grid"
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
@@ -103,17 +108,25 @@ export default function Skills() {
           {skillGroups.map((group) => (
             <div
               key={group.title}
+              className={group.items.length >= 7 ? 'skill-group-card skill-group-card--wide' : 'skill-group-card'}
               style={{
                 background: 'rgba(17, 24, 39, 0.92)',
                 border: '1px solid rgba(148, 163, 184, 0.14)',
                 padding: '1.5rem',
                 borderRadius: 16,
                 boxShadow: '0 18px 50px rgba(0, 0, 0, 0.30)',
+                minWidth: 0,
               }}
             >
               <h3 style={{ marginBottom: '1rem', color: '#f8fafc' }}>{group.title}</h3>
 
-              <div style={{ display: 'grid', gap: '1rem' }}>
+              <div
+                className={group.items.length >= 7 ? 'skill-list skill-list--split' : 'skill-list'}
+                style={{
+                  display: 'grid',
+                  gap: '1rem',
+                }}
+              >
                 {group.items.map((item) => (
                   <ProgressRow key={item.name} name={item.name} percent={item.percent} />
                 ))}

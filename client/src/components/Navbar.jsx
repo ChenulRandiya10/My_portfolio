@@ -8,8 +8,8 @@ const navItems = [
   { href: '#about', label: 'About', icon: FaUser },
   { href: '#work-experience', label: 'Work Experience', icon: FaBriefcase },
   { href: '#education-qualifications', label: 'Education & Qualifications', icon: FaGraduationCap },
-  { href: '#skills', label: 'Skills', icon: FaTools },
   { href: '#projects', label: 'Projects', icon: FaFolderOpen },
+  { href: '#skills', label: 'Skills', icon: FaTools },
   { href: '#contact', label: 'Contact', icon: FaEnvelope },
 ];
 
@@ -22,31 +22,27 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState('home');
   const [hoveredItem, setHoveredItem] = useState(null);
   const [hoveredSocial, setHoveredSocial] = useState(null);
-  const headerOffset = 80; // should match scroll-padding-top
+  const headerOffset = 110; // should match scroll-padding-top
 
   useEffect(() => {
     const sectionIds = navItems.map((item) => item.href.replace('#', ''));
-    const activationOffset = headerOffset;
 
     const updateActiveSection = () => {
-      let currentSection = sectionIds[0] || 'home';
-      const scrollPosition = window.scrollY + activationOffset;
+      const activationLine = headerOffset + 24;
+      const sections = sectionIds
+        .map((id) => {
+          const element = document.getElementById(id);
+          return element ? { id, top: element.getBoundingClientRect().top } : null;
+        })
+        .filter(Boolean);
 
-      for (const id of sectionIds) {
-        const element = document.getElementById(id);
-        if (!element) {
-          continue;
-        }
+      const active = sections
+        .filter((section) => section.top <= activationLine)
+        .sort((a, b) => b.top - a.top)[0] ?? sections[0];
 
-        const elementTop = element.getBoundingClientRect().top + window.scrollY;
-        if (scrollPosition >= elementTop) {
-          currentSection = id;
-        } else {
-          break;
-        }
+      if (active) {
+        setActiveSection(active.id);
       }
-
-      setActiveSection(currentSection);
     };
 
     updateActiveSection();
@@ -124,7 +120,7 @@ export default function Navbar() {
                       const target = document.getElementById(id);
                       if (target) {
                         e.preventDefault();
-                        const top = target.getBoundingClientRect().top + window.scrollY - headerOffset + 8;
+                        const top = target.getBoundingClientRect().top + window.scrollY - headerOffset;
                         window.scrollTo({ top, behavior: 'smooth' });
                         setActiveSection(id);
                         // update the URL without jumping

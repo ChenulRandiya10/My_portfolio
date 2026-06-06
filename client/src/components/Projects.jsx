@@ -1,45 +1,129 @@
 import { TechIcon, ProjectLogo } from './Icons';
 
+const projectCovers = import.meta.glob('../images/project_cover_image/*.png', { eager: true, import: 'default' });
+
+function getProjectCover(fileName) {
+  const key = Object.keys(projectCovers).find((path) => path.endsWith(`/${fileName}`));
+  return key ? projectCovers[key] : null;
+}
+
 const projects = [
-  { 
-    title: 'D and S Creations Advertising Agency', 
-    desc: 'Full-stack web platform for managing clients, ad campaigns, and media assets. Features secure role-based registration, intuitive admin dashboard for user approval, campaign performance monitoring, and detailed performance reports.', 
-    tech: ['React.js', 'Node.js', 'MongoDB', 'Express.js'],
-    year: '2025',
-    github: '#', 
-    live: '#' 
+  {
+    title: 'UniConnect - Guest Lecturer & Lost and Found Platform',
+    year: 'SLIIT 2026',
+    cover: 'UniConnect.png',
+    desc: 'University platform to manage guest lecturer sessions and provide lost & found services with secure access and payments.',
+    tech: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'JWT'],
+    highlights: [
+      'Developed a university platform for managing guest lecturer sessions and lost & found services.',
+      'Implemented secure user authentication and authorization using JWT.',
+      'Integrated a payment gateway with shopping cart and checkout flow.',
+    ],
+    github: 'https://github.com/HeshaniWickramasinghe/Uni-Connect.git',
   },
-  { 
-    title: 'Planner - Online Event Planning System', 
-    desc: 'Online platform for planning and managing events with features for event creation, booking, and user registration. Handles event registration and data management with seamless user experience.', 
+  {
+    title: 'Smart Campus Operations Hub',
+    year: 'SLIIT 2026',
+    cover: 'Smart Campus Operations Hub.png',
+    desc: 'Facilities and assets catalogue management system for university operations with advanced search and inventory insights.',
+    tech: ['React.js', 'Java', 'Spring Boot', 'MongoDB', 'HTML', 'CSS'],
+    highlights: [
+      'Built full CRUD for facilities (lecture halls, labs, meeting rooms) and equipment resources.',
+      'Implemented search and filtering by type, building, capacity, and status.',
+      'Developed admin UI for availability/status management with statistics endpoints.',
+    ],
+    github: 'https://github.com/MatheeshaKuruppu/SmartCampus.git',
+  },
+  {
+    title: 'My Portfolio',
+    year: '2026',
+    cover: 'My Portfolio.png',
+    desc: 'Personal portfolio website showcasing profile, skills, education, work experience, and featured projects with a clean professional UI.',
+    tech: ['React.js', 'Vite', 'Node.js', 'Express.js', 'MongoDB', 'HTML', 'CSS'],
+    highlights: [
+      'Designed and developed a modern portfolio to present skills and projects in a structured layout.',
+      'Implemented responsive UI with smooth navigation and section-based scrolling.',
+      'Integrated a contact form with backend API handling for secure messaging.',
+    ],
+    github: 'https://github.com/ChenulRandiya10/My_portfolio.git',
+  },
+  {
+    title: 'D and S Creations Advertising Agency',
+    year: 'SLIIT 2025',
+    cover: 'D and S Creations Advertising Agency.png',
+    desc: 'Web application for a digital media marketing agency to manage clients, ad campaigns, and media assets.',
+    tech: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'HTML', 'CSS'],
+    highlights: [
+      'Developed a full-stack platform for managing clients, ad campaigns, and media assets.',
+      'Implemented secure role-based registration for clients, media owners, and designers.',
+      'Built an admin dashboard to approve users, analyze campaign performance, and generate reports.',
+    ],
+    github: 'https://github.com/Harshavidath12/D-and-S-Creations.git',
+  },
+  {
+    title: 'Playwright Test Automation Suite',
+    year: 'SLIIT 2026',
+    cover: 'ITPM Playwright Test Automation Suite.png',
+    desc: 'Automated testing framework for a web-based translation platform with CI integration and reporting.',
+    tech: ['Playwright', 'JavaScript', 'Node.js', 'GitHub Actions'],
+    highlights: [
+      'Developed an automation framework using Playwright for end-to-end testing.',
+      'Created functional, negative, and UI test scenarios to validate reliability.',
+      'Implemented reporting, screenshot capture, and CI/CD via GitHub Actions.',
+    ],
+    github: 'https://github.com/ChenulRandiya10/ITPM-Playwright-testing-Y3-S1.git',
+  },
+  {
+    title: 'Habit. - Personal Health & Habit Tracker App',
+    year: 'SLIIT 2025',
+    cover: 'Habit. - Personal Health & Habit Tracker App.png',
+    desc: 'Health and habit tracking app with daily routines, reminders, and visualizations.',
+    tech: ['Kotlin', 'Android Studio', 'Firebase'],
+    highlights: [
+      'Implemented daily habit tracking and reminders.',
+      'Added mood journal and hydration tracking features.',
+      'Built dashboards and visual summaries for progress insights.',
+    ],
+    github: 'https://github.com/ChenulRandiya10/Habit..git',
+  },
+  {
+    title: 'Planner - Online Event Planning System',
+    year: 'SLIIT 2025',
+    cover: 'Planner - Online Event Planning System.png',
+    desc: 'Event planning web system with event creation, bookings, and user registration.',
     tech: ['HTML', 'JavaScript', 'CSS', 'PHP', 'MySQL'],
-    year: '2025',
-    github: '#', 
-    live: '#' 
+    highlights: [
+      'Implemented event creation and booking workflows.',
+      'Built user registration and data management features.',
+      'Focused on a smooth and responsive user experience.',
+    ],
+    github: 'https://github.com/ChenulRandiya10/Planner.git',
   },
-  { 
-    title: 'Wander Gear - Online Resource Booking System', 
-    desc: 'Online platform for renting travel equipment with reservation and purchase options. Integrated a secure payment gateway to process online payments for seamless transactions.', 
+  {
+    title: 'MoneyMate - Personal Finance Tracker App',
+    year: 'SLIIT 2025',
+    cover: 'MoneyMate - Personal Finance Tracker App.png',
+    desc: 'Personal budgeting Android app with offline storage, expense tracking, and visual summaries.',
+    tech: ['Kotlin', 'Android Studio', 'Firebase'],
+    highlights: [
+      'Implemented expense tracking with categorized entries and summaries.',
+      'Designed mobile UI with clean navigation and quick actions.',
+      'Added backup/sync support with Firebase services.',
+    ],
+    github: 'https://github.com/ChenulRandiya10/MoneyMate.git',
+  },
+  {
+    title: 'Wander Gear - Online Resource Booking System',
+    year: 'SLIIT 2024',
+    cover: 'Wander Gear - Online Resource Booking System.png',
+    desc: 'Resource booking and rental platform with reservations and purchase options.',
     tech: ['HTML', 'JavaScript', 'CSS', 'MySQL'],
-    year: '2024',
-    github: '#', 
-    live: '#' 
-  },
-  { 
-    title: 'MoneyMate - Personal Finance Tracker App', 
-    desc: 'Personal budgeting app with offline storage, expense tracking, visual summaries, and backup features for managing finances efficiently.', 
-    tech: ['Kotlin', 'Android Studio', 'Firebase'],
-    year: '2025',
-    github: '#', 
-    live: '#' 
-  },
-  { 
-    title: 'Habit. - Personal Health & Habit Tracker App', 
-    desc: 'Mobile app for managing daily health routines and personal wellness. Features daily habit tracking, mood journal with emojis, hydration reminders, and advanced visualizations.', 
-    tech: ['Kotlin', 'Android Studio', 'Firebase'],
-    year: '2025',
-    github: '#', 
-    live: '#' 
+    highlights: [
+      'Built booking and reservation workflows for travel equipment.',
+      'Designed responsive pages for browsing, booking, and checkout.',
+      'Implemented secure data handling with a relational database.',
+    ],
+    github: 'https://github.com/ChenulRandiya10/Wander-Gear.git',
   },
 ];
 
@@ -55,7 +139,10 @@ export default function Projects() {
           Explore a selection of my recent work. Each project represents a unique challenge and solution, showcasing my skills in full-stack development and problem-solving.
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.6rem' }}>
-          {projects.map(p => (
+          {projects.map((p) => (
+            (() => {
+              const coverSrc = p.cover ? getProjectCover(p.cover) : null;
+              return (
             <div key={p.title} style={{ 
               borderRadius: '16px', 
               overflow: 'hidden', 
@@ -76,14 +163,22 @@ export default function Projects() {
             }}
             >
               <div style={{ 
-                background: 'linear-gradient(135deg, rgba(79, 134, 255, 0.14), rgba(139, 92, 246, 0.10))',
                 height: '200px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 fontWeight: 'bold',
+                position: 'relative',
+                background: 'linear-gradient(135deg, rgba(79, 134, 255, 0.14), rgba(139, 92, 246, 0.10))',
               }}>
-                <ProjectLogo title={p.title} size={90} />
+                {coverSrc ? (
+                  <>
+                    <img src={coverSrc} alt={`${p.title} cover`} style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(1.16) saturate(1.04)' }} />
+                    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(2, 6, 23, 0.04) 0%, rgba(2, 6, 23, 0.24) 100%)' }} />
+                  </>
+                ) : (
+                  <ProjectLogo title={p.title} size={90} />
+                )}
               </div>
             
               <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', flex: 1 }}>
@@ -94,9 +189,19 @@ export default function Projects() {
                   </span>
                 </div>
               
-                <p style={{ fontSize: '0.92rem', color: '#cbd5e1', lineHeight: 1.65, marginBottom: '1rem', flex: 1 }}>
+                <p style={{ fontSize: '0.92rem', color: '#cbd5e1', lineHeight: 1.65, marginBottom: '0.85rem' }}>
                   {p.desc}
                 </p>
+
+                {p.highlights?.length ? (
+                  <ul style={{ margin: '0 0 1rem', paddingLeft: '1.15rem', color: '#e2e8f0', lineHeight: 1.7, fontSize: '0.9rem' }}>
+                    {p.highlights.map((item) => (
+                      <li key={item} style={{ marginBottom: '0.45rem' }}>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
               
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.55rem', marginBottom: '1rem' }}>
                   {p.tech.map(t => (
@@ -118,15 +223,14 @@ export default function Projects() {
                 </div>
               
                 <div style={{ display: 'flex', gap: '1rem', marginTop: 'auto' }}>
-                  <a href={p.github} style={{ color: '#9fb0ff', textDecoration: 'none', fontSize: '0.92rem', fontWeight: 700 }}>
+                  <a href={p.github} target="_blank" rel="noreferrer" style={{ color: '#9fb0ff', textDecoration: 'none', fontSize: '0.92rem', fontWeight: 700 }}>
                     GitHub →
-                  </a>
-                  <a href={p.live} style={{ color: '#9fb0ff', textDecoration: 'none', fontSize: '0.92rem', fontWeight: 700 }}>
-                    Live Demo →
                   </a>
                 </div>
               </div>
             </div>
+              );
+            })()
           ))}
         </div>
       </div>
