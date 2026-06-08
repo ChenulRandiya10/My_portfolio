@@ -5,7 +5,7 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "https://your-api.onrender.com/api/$1"
+      "destination": "https://portfolio-api-4imj.onrender.com/api/$1"
     },
     {
       "source": "/(.*)",
