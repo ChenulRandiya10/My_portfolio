@@ -1,6 +1,12 @@
 import React from 'react'
 import { FaBolt, FaCheckCircle, FaGraduationCap } from 'react-icons/fa';
 
+// Import images
+import projectsCompletedImg from '../images/Projects Completed.png';
+import yearsExperienceImg from '../images/Years Experience.png';
+import technologiesImg from '../images/Technologies.png';
+import openSourceImg from '../images/Open Source.png';
+
 const leadershipActivities = [
   { role: 'Volunteer Member', period: '2023 - Present', organization: 'SLIIT Faculty of Computing Students Community, Malabe' },
   { role: 'Deputy Head Prefect', period: '2022', organization: 'Karunarathna Buddhist National College' },
@@ -197,8 +203,13 @@ export default function About() {
                         'Years Experience': 'Years Experience.png',
                         'Open Source': 'Open Source.png'
                       };
-                      const src = `/src/images/${map[s.label]}`;
-                      return <img src={src} alt={s.label} style={{ width: 88, height: 88, objectFit: 'contain' }} />;
+            const imgMap = {
+              'Technologies': technologiesImg,
+              'Projects Completed': projectsCompletedImg,
+              'Years Experience': yearsExperienceImg,
+              'Open Source': openSourceImg
+            };
+            return <img src={imgMap[s.label]} alt={s.label} style={{ width: 88, height: 88, objectFit: 'contain' }} />;
                     })()
                   ) : (
                     <span style={{ width: '44px', height: '44px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(79,134,255,0.08)', borderRadius: '10px' }}><Icon /></span>
