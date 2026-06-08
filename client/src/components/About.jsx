@@ -70,8 +70,8 @@ export default function About() {
   }
 
   const stats = [
-    { label: 'Projects Completed', value: '25+', icon: StatIconFolder },
-    { label: 'Years Experience', value: '2+', icon: StatIconCalendar },
+    { label: 'Projects Completed', value: '10+', icon: StatIconFolder },
+    { label: 'Years Experience', value: '1+', icon: StatIconCalendar },
     { label: 'Technologies', value: '15+', icon: StatIconChip },
     { label: 'Open Source', value: '10+', icon: StatIconGit },
   ];
