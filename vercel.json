@@ -1,7 +1,7 @@
 {
-  "buildCommand": "cd client && npm run build",
+  "buildCommand": "npm run build --workspace client",
   "outputDirectory": "dist",
-  "installCommand": "npm install && chmod -R +x node_modules/.bin",
+  "installCommand": "npm install",
   "rewrites": [
     {
       "source": "/api/(.*)",
