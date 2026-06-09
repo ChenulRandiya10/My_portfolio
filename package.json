@@ -6,7 +6,7 @@
   ],
   "scripts": {
     "dev": "npm run dev --workspace client",
-    "build": "cd client && npm run build",
+    "build": "npm run build --workspace client",
     "start": "npm run preview --workspace client",
     "install-all": "npm install && npm install --workspace client",
     "heroku-postbuild": "npm run build"

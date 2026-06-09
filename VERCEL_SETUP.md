@@ -6,7 +6,7 @@ This project deploys as a static Vite app.
 
 - Root Directory: project root
 - Build Command: `npm run build`
-- Output Directory: `client/dist`
+- Output Directory: `dist`
 - Install Command: `npm install`
 
 No API environment variables are required.

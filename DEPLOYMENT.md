@@ -10,7 +10,7 @@ Use these project settings:
 - Root Directory: project root
 - Install Command: `npm install`
 - Build Command: `npm run build`
-- Output Directory: `client/dist`
+- Output Directory: `dist`
 
 The included `vercel.json` already points Vercel to the correct build output and keeps client-side routing working.
 
