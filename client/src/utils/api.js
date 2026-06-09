@@ -1,15 +1,19 @@
 import axios from 'axios';
 
 // Determine the base URL for API requests
-// In production (Vercel), this will be set via VITE_API_BASE_URL environment variable
-// In development, it defaults to the Vite proxy at /api which forwards to the backend
+// Priority:
+// 1. VITE_API_BASE_URL environment variable (set in .env.production or Vercel)
+// 2. Fallback to /api for Vercel rewrites to work
 const getBaseUrl = () => {
-  // If explicitly set, use that
-  if (import.meta.env.VITE_API_BASE_URL) {
-    return import.meta.env.VITE_API_BASE_URL;
+  // If explicitly set via environment variable, use that
+  const envUrl = import.meta.env.VITE_API_BASE_URL;
+  if (envUrl) {
+    // Remove trailing slash if present
+    return envUrl.replace(/\/$/, '');
   }
   
-  // For development and same-origin deployments, use relative path
+  // For Vercel deployment without env var, use relative path
+  // The vercel.json rewrites will forward /api/* to the backend
   return '/api';
 };
 
