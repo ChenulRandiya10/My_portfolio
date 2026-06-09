@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import api from '../utils/api';
 import { ContactIcon, SendMessageIcon } from './Icons';
 
 const accentColor = '#7c8cff';
+const contactEmail = 'chenulrandiya10@gmail.com';
+const formSubmitUrl = `https://formsubmit.co/ajax/${contactEmail}`;
 
 const contactItems = [
   { label: 'Phone', value: '+94 75 333 4782', href: 'tel:+94753334782', type: 'phone' },
@@ -39,11 +40,35 @@ export default function Contact() {
     setStatus('');
 
     try {
-      await api.post('/contact', form);
+      const response = await fetch(formSubmitUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          companyName: form.companyName || 'Not provided',
+          subject: form.subject || 'Portfolio contact message',
+          message: form.message,
+          _replyto: form.email,
+          _subject: form.subject ? `Portfolio Contact: ${form.subject}` : 'New portfolio contact message',
+          _template: 'table',
+          _captcha: 'false',
+        }),
+      });
+
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Something went wrong. Please try again.');
+      }
+
       setStatus('Message sent successfully.');
       setForm({ name: '', email: '', companyName: '', subject: '', message: '' });
     } catch (error) {
-      setStatus(error.response?.data?.error || 'Something went wrong. Please try again.');
+      setStatus(error.message || 'Something went wrong. Please try again.');
     } finally {
       setIsSubmitting(false);
     }

@@ -1,34 +1,11 @@
 {
   "buildCommand": "npm run build",
-  "outputDirectory": "dist",
+  "outputDirectory": "client/dist",
   "installCommand": "npm install",
   "rewrites": [
     {
-      "source": "/api/(.*)",
-      "destination": "https://portfolio-api-4imj.onrender.com/api/$1"
-    },
-    {
       "source": "/(.*)",
       "destination": "/index.html"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/api/(.*)",
-      "headers": [
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
-        },
-        {
-          "key": "Access-Control-Allow-Methods",
-          "value": "GET,POST,PUT,DELETE,OPTIONS,PATCH"
-        },
-        {
-          "key": "Access-Control-Allow-Headers",
-          "value": "X-Requested-With,Content-Type,Authorization,x-admin-password"
-        }
-      ]
     }
   ]
 }
