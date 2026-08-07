@@ -14,7 +14,7 @@ const navItems = [
 ];
 
 const socialItems = [
-  { href: 'https://github.com/ChenulRandiya10', label: 'GitHub', icon: FaGithub },
+  { href: 'https://github.com/ChenulMarasinghe', label: 'GitHub', icon: FaGithub },
   { href: 'https://www.linkedin.com/in/chenul-randiya-marasinghe-382aa8293', label: 'LinkedIn', icon: FaLinkedinIn },
 ];
 

@@ -8,13 +8,13 @@ const formSubmitUrl = `https://formsubmit.co/ajax/${contactEmail}`;
 const contactItems = [
   { label: 'Phone', value: '+94 75 333 4782', href: 'tel:+94753334782', type: 'phone' },
   { label: 'Location', value: 'Ragama, Sri Lanka', href: 'https://maps.google.com/', type: 'location' },
-  { label: 'GitHub', value: 'Chenul Randiya Marasinghe', href: 'https://github.com/ChenulRandiya10', type: 'github' },
+  { label: 'GitHub', value: 'Chenul Randiya Marasinghe', href: 'https://github.com/ChenulMarasinghe', type: 'github' },
   { label: 'LinkedIn', value: 'Chenul Randiya Marasinghe', href: 'https://www.linkedin.com/in/chenul-randiya-marasinghe-382aa8293', type: 'linkedin' },
   { label: 'Email', value: 'chenulrandiya10@gmail.com', href: 'mailto:chenulrandiya10@gmail.com', type: 'email' },
 ];
 
 const socialLinks = [
-  { label: 'GitHub', href: 'https://github.com/ChenulRandiya10', type: 'github' },
+  { label: 'GitHub', href: 'https://github.com/ChenulMarasinghe', type: 'github' },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/chenul-randiya-marasinghe-382aa8293', type: 'linkedin' },
 ];
 

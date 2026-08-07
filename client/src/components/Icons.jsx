@@ -30,6 +30,7 @@ import {
   SiOpenapiinitiative,
   SiGmail,
 } from 'react-icons/si';
+import { SiReactrouter, SiVercel, SiRender } from 'react-icons/si';
 import { FaAws, FaPhone, FaMapMarkerAlt, FaLinkedin, FaGithub } from 'react-icons/fa';
 import { IoSend } from 'react-icons/io5';
 import { VscVscode } from 'react-icons/vsc';
@@ -61,6 +62,36 @@ function PlaywrightIcon({ size, style }) {
       <path d="M6.5 5.5h5.6c2.2 0 3.7 1.3 3.7 3.3 0 2-1.5 3.3-3.7 3.3H9.3v6.1H6.5V5.5Z" fill="#2EAD33" />
       <path d="M12.1 9.6c0 .5-.4.9-.9.9H9.3V7.8h1.9c.5 0 .9.4.9.9v.9Z" fill="#0E6B1C" />
       <path d="M17.2 6.1c1.6 0 2.8 1.2 2.8 2.8v9.1c0 1.6-1.2 2.8-2.8 2.8h-5.3v-2.6h5.3c.2 0 .3-.1.3-.3V8.9c0-.2-.1-.3-.3-.3h-2.3V6.1h2.3Z" fill="#34D399" />
+    </svg>
+  );
+}
+
+function MongooseIcon({ size, style }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={{ flexShrink: 0, ...style }} xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2.5l5.5 3.2v6.5c0 4.2-2.1 7.7-5.5 9.3-3.4-1.6-5.5-5.1-5.5-9.3V5.7L12 2.5Z" fill="#47A248" />
+      <path d="M12 6v11" stroke="#ffffff" strokeWidth="1.8" strokeLinecap="round" />
+      <path d="M12 8.5c-1.8 1.2-2.8 2.9-2.8 4.8 0 1.7.9 3.1 2.1 4" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function NodemailerIcon({ size, style }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={{ flexShrink: 0, ...style }} xmlns="http://www.w3.org/2000/svg">
+      <rect x="3" y="5" width="18" height="14" rx="3" fill="#E11D48" />
+      <path d="M5 8l7 5 7-5" stroke="#ffffff" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M5 16l4.8-4M19 16l-4.8-4" stroke="#ffffff" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function SearchConsoleIcon({ size, style }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" style={{ flexShrink: 0, ...style }} xmlns="http://www.w3.org/2000/svg">
+      <rect x="4" y="4" width="16" height="16" rx="4" fill="#F4B400" />
+      <path d="M8 15.5h8M8 11.5h5.5M8 7.5h3.5" stroke="#ffffff" strokeWidth="1.7" strokeLinecap="round" />
+      <circle cx="16.2" cy="15.2" r="2.1" fill="#ffffff" opacity="0.95" />
     </svg>
   );
 }
@@ -168,6 +199,9 @@ export function TechIcon({ name, size = 26, style = {} }) {
     case 'mongodb':
       return wrap(<SiMongodb size={size} color="#47A248" style={style} />);
 
+    case 'mongoose':
+      return wrap(<MongooseIcon size={size} style={style} />);
+
     case 'mysql':
       return wrap(<SiMysql size={size} color="#4479A1" style={style} />);
 
@@ -184,6 +218,22 @@ export function TechIcon({ name, size = 26, style = {} }) {
     case 'githubactions':
     case 'githubaction':
       return wrap(<SiGithubactions size={size} color="#2088FF" style={style} />);
+
+    case 'reactrouter':
+      return wrap(<SiReactrouter size={size} color="#E34F26" style={style} />);
+
+    case 'nodemailer':
+      return wrap(<NodemailerIcon size={size} style={style} />);
+
+    case 'vercel':
+      return wrap(<SiVercel size={size} color="#ffffff" style={style} />);
+
+    case 'render':
+      return wrap(<SiRender size={size} color="#46E3B7" style={style} />);
+
+    case 'googlesearchconsole':
+    case 'searchconsole':
+      return wrap(<SearchConsoleIcon size={size} style={style} />);
 
     case 'vscode':
       return wrap(<VscVscode size={size} color="#007ACC" style={style} />);

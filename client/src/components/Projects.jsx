@@ -9,6 +9,21 @@ function getProjectCover(fileName) {
 
 const projects = [
   {
+    title: "Cake n' Smile - Custom Cake Ordering Platform",
+    year: '2026',
+    cover: "Cake n' Smile - Custom Cake Ordering Platform.png",
+    desc: 'A modern full-stack website for a custom cake shop, designed to showcase cake categories, help customers explore product details, and place orders quickly through WhatsApp or email.',
+    tech: ['React.js', 'Vite', 'Node.js', 'Express.js', 'MongoDB', 'Mongoose', 'React Router', 'Nodemailer', 'Vercel', 'Render', 'Google Search Console'],
+    highlights: [
+      'Built a responsive full-stack cake shop platform for browsing custom cakes by category and search.',
+      'Added detailed product pages with cake images, flavours, sizes, and other item information.',
+      'Enabled direct ordering through WhatsApp and email for a simple, cart-free customer journey.',
+      'Deployed the frontend on Vercel, the backend on Render, and configured Google Search Console for indexing and visibility.',
+      'Optimized the site for mobile use, fast performance, and search engine visibility.',
+    ],
+    github: 'https://github.com/ChenulMarasinghe',
+  },
+  {
     title: 'UniConnect - Guest Lecturer & Lost and Found Platform',
     year: 'SLIIT 2026',
     cover: 'UniConnect.png',
@@ -45,7 +60,7 @@ const projects = [
       'Implemented responsive UI with smooth navigation and section-based scrolling.',
       'Integrated a contact form with backend API handling for secure messaging.',
     ],
-    github: 'https://github.com/ChenulRandiya10/My_portfolio.git',
+    github: 'https://github.com/ChenulMarasinghe/My_portfolio.git',
   },
   {
     title: 'D and S Creations Advertising Agency',
@@ -72,7 +87,7 @@ const projects = [
       'Integrated Excel-based test data management and automated result validation using OpenPyXL.',
       'Generated automated PASS/FAIL reports by comparing expected and actual outputs.',
     ],
-    github: 'https://github.com/ChenulRandiya10/test_automation.git',
+    github: 'https://github.com/ChenulMarasinghe/test_automation.git',
   },
   {
     title: 'Habit. - Personal Health & Habit Tracker App',
@@ -85,7 +100,7 @@ const projects = [
       'Added mood journal and hydration tracking features.',
       'Built dashboards and visual summaries for progress insights.',
     ],
-    github: 'https://github.com/ChenulRandiya10/Habit..git',
+    github: 'https://github.com/ChenulMarasinghe/Habit..git',
   },
   {
     title: 'Planner - Online Event Planning System',
@@ -98,7 +113,7 @@ const projects = [
       'Built user registration and data management features.',
       'Focused on a smooth and responsive user experience.',
     ],
-    github: 'https://github.com/ChenulRandiya10/Planner.git',
+    github: 'https://github.com/ChenulMarasinghe/Planner.git',
   },
   {
     title: 'MoneyMate - Personal Finance Tracker App',
@@ -111,7 +126,7 @@ const projects = [
       'Designed mobile UI with clean navigation and quick actions.',
       'Added backup/sync support with Firebase services.',
     ],
-    github: 'https://github.com/ChenulRandiya10/MoneyMate.git',
+    github: 'https://github.com/ChenulMarasinghe/MoneyMate.git',
   },
   {
     title: 'Wander Gear - Online Resource Booking System',
@@ -124,7 +139,7 @@ const projects = [
       'Designed responsive pages for browsing, booking, and checkout.',
       'Implemented secure data handling with a relational database.',
     ],
-    github: 'https://github.com/ChenulRandiya10/Wander-Gear.git',
+    github: 'https://github.com/ChenulMarasinghe/Wander-Gear.git',
   },
 ];
 
